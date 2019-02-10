@@ -19,11 +19,11 @@ t_system	*init(int ac, char **av)
 	int 		i;
 
 	out = (t_system*)malloco(sizeof(t_system));
+	out->size = ac - 1;
 	out->a = (t_stack*)malloco(sizeof(t_stack));
 	out->b = (t_stack*)malloco(sizeof(t_stack));
-	out->a->array = (int*)malloco(out->size);
-	out->b->array = (int*)malloco(out->size);
-	out->size = ac - 1;
+	out->a->array = (int*)malloco(out->size * 4);
+	out->b->array = (int*)malloco(out->size * 4);
 	out->a->size = out->size;
 	out->b->size = 0;
 	i = 0;

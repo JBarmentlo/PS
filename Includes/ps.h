@@ -27,4 +27,7 @@ void			pb(t_system *sys);
 void			rb(t_system *sys);
 void			rrb(t_system *sys);
 
+int				get_median(int *array, int size);
+void			push_half(t_system *sys);
+
 #endif
