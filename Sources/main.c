@@ -7,6 +7,16 @@ int main(int ac, char **av)
 
 	sys = init(ac, av);
 	//print_sys(sys);
+
+	int i = 10;
+	while (i--)
+		pa(sys);
+	pb(sys);
+	ra(sys);
+	rra(sys);
+	while (i++ < 100)
+		pb(sys);
+	//print_sys(sys);
 	m_ab(sys, sys->size, 0);
 	//print_sys(sys);
 /*
