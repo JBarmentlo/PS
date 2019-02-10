@@ -6,15 +6,43 @@ int main(int ac, char **av)
 	t_system *sys;
 
 	sys = init(ac, av);
-	//get_median(sys->a->array, sys->a->size);
-	int i = 0;
-	while (sys->a->size != 0)
-	{
-		printf("i  :%d\n", i);
-			push_half(sys);
-			printf("oy\n");
-			print_sys(sys);
-			i++;
-	}
-
+	m_ab(sys, sys->size);
+	print_sys(sys);
+/*
+		print_sys(sys);
+		printf("a_b 8\n");
+	a_b(sys, 8);
+		print_sys(sys);
+		printf("a_b 4\n");
+	a_b(sys, 4);
+		print_sys(sys);
+		printf("a_b 2\n");
+	a_b(sys, 2);
+		print_sys(sys);
+		printf("b_a 2\n");
+	b_a(sys, 1);
+		print_sys(sys);
+		printf("b_a 4\n");
+	b_a(sys, 2);
+		print_sys(sys);
+		printf("b_a 1\n");
+	b_a(sys, 1);
+		print_sys(sys);
+		printf("b_a 4\n");
+	b_a(sys, 4);
+		print_sys(sys);
+		printf("a_b 2\n");
+	a_b(sys, 2);
+		print_sys(sys);
+		printf("b_a 1\n");
+	b_a(sys, 1);
+		print_sys(sys);
+		printf("b_a 2\n");
+	b_a(sys, 2);
+		print_sys(sys);
+		printf("b_a 1\n");
+	b_a(sys, 1);
+		print_sys(sys);
+		printf("\n");
+*/
 }

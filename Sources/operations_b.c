@@ -8,9 +8,9 @@ void	sb(t_system *sys)
 	arr = sys->b->array;
 	if (sys->b->size < 2)
 		return;
-	tmp = arr[sys->b->size - 1];
-	arr[sys->b->size - 1] = arr[sys->b->size - 2];
-	arr[sys->b->size - 2] = tmp;
+	tmp = arr[0];
+	arr[0] = arr[1];
+	arr[1] = tmp;
 }
 
 void	pb(t_system *sys)
@@ -23,12 +23,14 @@ void	pb(t_system *sys)
 
 	if (b->size == 0)
 		return;
-	a->array[a->size] = b->array[b->size - 1];
+	a->array--;
+	a->array[0] = b->array[0];
+	b->array++;
 	a->size++;
 	b->size--;
 }
 
-void	rb(t_system *sys)
+void	rrb(t_system *sys)
 {
 	t_stack *b;
 	int		i;
@@ -47,7 +49,7 @@ void	rb(t_system *sys)
 	b->array[0] = tmp;
 }
 
-void	rrb(t_system *sys)
+void	rb(t_system *sys)
 {
 	t_stack *b;
 	int		i;

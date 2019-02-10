@@ -8,9 +8,9 @@ void	sa(t_system *sys)
 	arr = sys->a->array;
 	if (sys->a->size < 2)
 		return;
-	tmp = arr[sys->a->size - 1];
-	arr[sys->a->size - 1] = arr[sys->a->size - 2];
-	arr[sys->a->size - 2] = tmp;
+	tmp = arr[0];
+	arr[0] = arr[1];
+	arr[1] = tmp;
 }
 
 void	pa(t_system *sys)
@@ -23,12 +23,14 @@ void	pa(t_system *sys)
 
 	if (a->size == 0)
 		return;
-	b->array[b->size] = a->array[a->size - 1];
+	b->array--;
+	b->array[0] = a->array[0];
+	a->array++;
 	b->size++;
 	a->size--;
 }
 
-void	ra(t_system *sys)
+void	rra(t_system *sys)
 {
 	t_stack *a;
 	int		i;
@@ -38,7 +40,7 @@ void	ra(t_system *sys)
 	i = a->size - 1;
 	if (a->size <= 1)
 		return;
-	tmp = a->array[i];
+	tmp = a->array[a->size - 1];
 	while (i)
 	{
 		a->array[i] = a->array[i - 1];
@@ -47,7 +49,7 @@ void	ra(t_system *sys)
 	a->array[0] = tmp;
 }
 
-void	rra(t_system *sys)
+void	ra(t_system *sys)
 {
 	t_stack *a;
 	int		i;

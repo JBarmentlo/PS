@@ -28,6 +28,13 @@ void			rb(t_system *sys);
 void			rrb(t_system *sys);
 
 int				get_median(int *array, int size);
+int				get_median_s(int *array, int size);
 void			push_half(t_system *sys);
+void			b_a(t_system *sys, int size);
+void			a_b(t_system *sys, int size);
+
+void			m_ba(t_system *sys, int size);
+void			m_ab(t_system *sys, int size);
+
 
 #endif

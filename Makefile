@@ -1,7 +1,7 @@
 NAME=Push_Swap
 CFLAGS=-Wall -Wextra -Werror
 SOURCES=stack.c operations_a.c operations_b.c operations_both.c sorting_hat.c \
-		main.c
+		cursive.c main.c
 OBJ_FOLDER=out
 OUT=$(addprefix $(OBJ_FOLDER)/,$(SOURCES:.c=.o))
 
