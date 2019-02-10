@@ -101,7 +101,7 @@ void	a_b(t_system *sys, int size)
 	int	rev_count;
 	int	i;
 
-	printf("a_b(%d)\n", size);
+//	printf("a_b(%d)\n\n", size);
 
 	i = 0;
 	rev_count = 0;
@@ -119,7 +119,7 @@ void	a_b(t_system *sys, int size)
 	}
 	while (rev_count--)
 		rra(sys);
-	print_sys(sys);
+//	print_sys(sys);
 }
 
 void	b_a(t_system *sys, int size)
@@ -128,7 +128,7 @@ void	b_a(t_system *sys, int size)
 	int	rev_count;
 	int	i;
 
-	printf("b_a(%d)\n", size);
+//	printf("b_a(%d)\n\n", size);
 
 	i = 0;
 	rev_count = 0;
@@ -146,5 +146,5 @@ void	b_a(t_system *sys, int size)
 	}
 	while (rev_count--)
 		rrb(sys);
-	print_sys(sys);
+//	print_sys(sys);
 }

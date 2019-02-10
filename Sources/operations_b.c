@@ -1,5 +1,6 @@
 #include "ps.h"
 
+#include <stdio.h>
 void	sb(t_system *sys)
 {
 	int	*arr;
@@ -11,6 +12,7 @@ void	sb(t_system *sys)
 	tmp = arr[0];
 	arr[0] = arr[1];
 	arr[1] = tmp;
+	printf("sb\n");
 }
 
 void	pb(t_system *sys)
@@ -28,6 +30,7 @@ void	pb(t_system *sys)
 	b->array++;
 	a->size++;
 	b->size--;
+	printf("pb\n");
 }
 
 void	rrb(t_system *sys)
@@ -47,6 +50,7 @@ void	rrb(t_system *sys)
 		i--;
 	}
 	b->array[0] = tmp;
+	printf("rrb\n");
 }
 
 void	rb(t_system *sys)
@@ -66,4 +70,5 @@ void	rb(t_system *sys)
 		i++;
 	}
 	b->array[i] = tmp;
+	printf("rb\n");
 }

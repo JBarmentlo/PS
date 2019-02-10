@@ -6,8 +6,9 @@ int main(int ac, char **av)
 	t_system *sys;
 
 	sys = init(ac, av);
-	m_ab(sys, sys->size);
-	print_sys(sys);
+	//print_sys(sys);
+	m_ab(sys, sys->size, 0);
+	//print_sys(sys);
 /*
 		print_sys(sys);
 		printf("a_b 8\n");

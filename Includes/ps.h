@@ -33,8 +33,8 @@ void			push_half(t_system *sys);
 void			b_a(t_system *sys, int size);
 void			a_b(t_system *sys, int size);
 
-void			m_ba(t_system *sys, int size);
-void			m_ab(t_system *sys, int size);
+void			m_ba(t_system *sys, int size, int iter);
+void			m_ab(t_system *sys, int size, int iter);
 
 
 #endif
