@@ -1,4 +1,5 @@
 #include "ps.h"
+#include "strc.h"
 
 #include <stdio.h>
 void	sa(t_system *sys)
@@ -13,6 +14,7 @@ void	sa(t_system *sys)
 	tmp = arr[0];
 	arr[0] = arr[1];
 	arr[1] = tmp;
+//	*str = ft_strjoin_free(*str, "sa\n");
 	printf("sa\n");
 }
 

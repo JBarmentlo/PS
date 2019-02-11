@@ -29,12 +29,19 @@ void			rrb(t_system *sys);
 
 int				get_median(int *array, int size);
 int				get_median_s(int *array, int size);
+int				get_min(int *arr, int size);
 void			push_half(t_system *sys);
+
 void			b_a(t_system *sys, int size);
 void			a_b(t_system *sys, int size);
-
+void			a_b_first(t_system *sys, int size);
+void			m_ab_first(t_system *sys, int size);
 void			m_ba(t_system *sys, int size, int iter);
 void			m_ab(t_system *sys, int size, int iter);
 
+void			clean_input(t_system *sys);
+int				sorted_till(t_system *sys);
+
+void			sort_three(t_system *sys);
 
 #endif

@@ -1,7 +1,7 @@
 NAME=Push_Swap
 CFLAGS=-Wall -Wextra -Werror
 SOURCES=stack.c operations_a.c operations_b.c operations_both.c sorting_hat.c \
-		cursive.c main.c
+		cursive.c opti.c cleaning.c main.c
 OBJ_FOLDER=out
 OUT=$(addprefix $(OBJ_FOLDER)/,$(SOURCES:.c=.o))
 
@@ -12,7 +12,7 @@ $(NAME): $(OUT)
 
 $(OBJ_FOLDER)/%.o: Sources/%.c
 	@mkdir -p $(OBJ_FOLDER)
-	gcc $(CFLAGS) -I Includes -o $@ -c $<
+	gcc $(CFLAGS) -I Includes -I ../libft/includes -o $@ -c $< 
 
 clean:
 	rm -rf $(OBJ_FOLDER)

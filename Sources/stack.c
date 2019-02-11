@@ -44,14 +44,17 @@ void 	print_sys(t_system *sys)
 	printf(" ________________\n");
 	while (i < sys->size)
 	{
-		if (i >= sys->size - sys->a->size)
-			printf("| %5d |", sys->a->array[sys->a->size - sys->size + i]);
-		else
-			printf("|       |");
-		if (i >= sys->size - sys->b->size)
-			printf("| %5d |\n", sys->b->array[sys->b->size - sys->size + i]);
-		else
-			printf("|       |\n");
+		if (i >= sys->size - sys->a->size || i >= sys->size - sys->b->size)
+		{
+			if (i >= sys->size - sys->a->size)
+				printf("| %5d |", sys->a->array[sys->a->size - sys->size + i]);
+			else
+				printf("|       |");
+			if (i >= sys->size - sys->b->size)
+				printf("| %5d |\n", sys->b->array[sys->b->size - sys->size + i]);
+			else
+				printf("|       |\n");
+		}
 		i++;
 	}
 }

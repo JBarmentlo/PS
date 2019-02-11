@@ -1,24 +1,33 @@
 #include "ps.h"
 #include <stdio.h>
 
+int	is_sorted(t_system *sys)
+{
+	int	i;
+
+	if (sys->size != sys->a->size)
+		return (0);
+	i = 0;
+	while (i + 1 < sys->size) //SEGFAULT !!??
+	{
+		if (sys->a->array[i] > sys->a->array[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int main(int ac, char **av)
 {
 	t_system *sys;
 
 	sys = init(ac, av);
 	//print_sys(sys);
-
-	int i = 10;
-	while (i--)
-		pa(sys);
-	pb(sys);
-	ra(sys);
-	rra(sys);
-	while (i++ < 100)
-		pb(sys);
+	clean_input(sys);
 	//print_sys(sys);
-	m_ab(sys, sys->size, 0);
+	m_ab_first(sys, sys->size);
 	//print_sys(sys);
+	printf("sorted :%d\n", is_sorted(sys));
 /*
 		print_sys(sys);
 		printf("a_b 8\n");
