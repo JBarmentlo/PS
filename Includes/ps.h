@@ -22,8 +22,10 @@ typedef struct	sop_list
 
 void			*malloco(size_t size);
 void			ft_append(char **str, char *add);
-t_system		*sys_clone(t_system *sys, int size);
+t_system		*sys_clone(t_system *sys);
 void			sys_free(t_system *sys);
+t_system		*sys_fake(int size, int a_size, int b_size);
+void			free_sys_fake(t_system *sys);
 
 void			apply_list(t_op_list **start, t_system *sys, char **str);
 void			pf_list(t_op_list **start, void (*ff)(t_system*, char**));
@@ -62,6 +64,6 @@ int				clean_str(char *str);
 int				str_rm_part(char *str, int begin, int end);
 
 void			new_sort(t_system *sys, char **str);
-void			rec_start(t_system *syst, char **str, int size);
+void			rec_start(t_system *syst, char **str);
 
 #endif

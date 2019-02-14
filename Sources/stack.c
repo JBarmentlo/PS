@@ -39,26 +39,31 @@ t_system	*init(int ac, char **av)
 	return (out);
 }
 
-t_system	*sys_clone(t_system *sys, int size)
+t_system	*sys_clone(t_system *sys)
 {
 	t_system	*out;
 	int 		i;
 
 	out = (t_system*)malloco(sizeof(t_system));
-	out->size = size;
+	out->size = sys->size;
 	out->a = (t_stack*)malloco(sizeof(t_stack));
 	out->b = (t_stack*)malloco(sizeof(t_stack));
 	out->a->array = (int*)malloco(out->size * 4);
 	out->b->array = (int*)malloco(out->size * 4);
-	out->b->array = out->b->array + out->size;
-	out->a->size = out->size;
-	out->b->size = 0;
+	out->a->array = out->a->array + sys->size - sys->a->size;
+	out->b->array = out->b->array + sys->size - sys->b->size;
+	out->a->size = sys->a->size;
+	out->b->size = sys->b->size;
 	i = 0;
-	while (i < out->size)
+	while (i < sys->size)
 	{
-		out->a->array[i] = sys->a->array[i];
+		if (i < sys->a->size)
+			out->a->array[i] = sys->a->array[i];
+		if (i < sys->b->size)
+			out->b->array[i] = sys->b->array[i];
 		i++;
 	}
+
 	return (out);
 }
 
@@ -95,4 +100,24 @@ void 	print_sys(t_system *sys)
 		}
 		i++;
 	}
+}
+
+t_system	*sys_fake(int size, int a_size, int b_size)
+{
+	t_system	*out;
+
+	out = (t_system*)malloco(sizeof(*out));
+	out->a = (t_stack*)malloco(sizeof(t_stack));
+	out->b = (t_stack*)malloco(sizeof(t_stack));
+	out->size = size;
+	out->a->size = a_size;
+	out->b->size = b_size;
+	return (out);
+}
+
+void	free_sys_fake(t_system *sys)
+{
+	free(sys->a);
+	free(sys->b);
+	free(sys);
 }

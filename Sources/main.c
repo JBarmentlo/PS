@@ -28,31 +28,25 @@ int main(int ac, char **av)
 	str = malloco(1);
 	str[0] = '\0';
 	sys = init(ac, av);
-	//print_sys(sys);
 	clean_input(sys);
-	rec_start(sys, &str, 5);
+	pa(sys, NULL);
+	pa(sys, NULL);
+	pa(sys, NULL);
+	pa(sys, NULL);
+	print_sys(sys);
+	rec_start(sys, &str);
+	print_sys(sys);
+	printf("yop\n");
 	//m_ab(sys, sys->size, &str);
+	//print_sys(sys);
+	//printf("final\n");
 	print_sys(sys);
 
-	//new_sort(sys, &str);
-	//print_sys(sys);
+printf("yop\n");
 
-/*
-	int	clean;
-	clean = 0;
-	while (!clean)
-	{
-		clean = clean_str(str);
-	}
-*/
-	printf("%s", str);
-//	printf("sorted :%d\n", is_sorted(sys));
-//	print_sys(sys);
+	printf("str :\n%s\n", str);
+	printf("sorted :%d\n", is_sorted(sys));
 
-	/*
+printf("yop\n");
 
-	    str = strdup("01\n34\n67\n89\n");
-		printf("%s", str);
-		str_rm_part(str, 3, 6);
-	*/
 }

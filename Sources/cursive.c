@@ -4,8 +4,8 @@
 
 void	m_ab(t_system *sys, int size, char **str)
 {
-	if (sys->a->size - sorted_till(sys) <= 5)
-		rec_start(sys, str, sys->a->size - sorted_till(sys));
+	if (sys->a->size - sorted_till(sys) <= 3)
+		rec_start(sys, str);
 	else
 	{
 		a_b(sys, size, str);
@@ -26,8 +26,8 @@ void	m_ba(t_system *sys, int size, char **str)
 
 void	m_ab_first(t_system *sys, int size, char **str)
 {
-	if (sys->a->size - sorted_till(sys) <= 7)
-		rec_start(sys, str, sys->a->size - sorted_till(sys));
+	if (sys->a->size - sorted_till(sys) <= 3)
+		rec_start(sys, str);
 	else
 	{
 		a_b_first(sys, size, str);
