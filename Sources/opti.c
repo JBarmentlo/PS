@@ -1,7 +1,7 @@
 #include "ps.h"
 
 #include <stdio.h>
-void	sort_three(t_system *sys)
+void	sort_three(t_system *sys, char **str)
 {
 	int	*a;
 	int	offset; //EXCEPTIONIF SIZE = 3 USE RA RRA
@@ -15,34 +15,40 @@ void	sort_three(t_system *sys)
 	{
 		if (a[1] - offset != 1)
 		{
-			pa(sys);
+			pa(sys, str);
 			if (a[1] - offset == 2)
-				sa(sys);
-			pb(sys);
+				sa(sys, str);
+			pb(sys, str);
 		}
 	}
 	else if (a[1] - offset == 0)
 	{
-		sa(sys);
-		sort_three(sys);
+		sa(sys, str);
+		sort_three(sys, str);
 	}
 	else if (a[2] - offset == 0)
 	{
 		if (a[1] - offset == 2)
 		{
-			pa(sys);
-			sa(sys);
-			pb(sys);
-			sa(sys);
+			pa(sys, str);
+			sa(sys, str);
+			pb(sys, str);
+			sa(sys, str);
 		}
 		else if (a[1] - offset == 1)
 		{
-			sa(sys);
-			pa(sys);
-			sa(sys);
-			pb(sys);
-			sa(sys);
+			sa(sys, str);
+			pa(sys, str);
+			sa(sys, str);
+			pb(sys, str);
+			sa(sys, str);
 		}
 	}
 //	print_sys(sys);
 }
+/*
+void	sort_four(t_system *sys, char **str)
+{
+
+}
+*/

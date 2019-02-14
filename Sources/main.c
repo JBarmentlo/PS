@@ -1,5 +1,6 @@
 #include "ps.h"
 #include <stdio.h>
+#include <string.h>
 
 int	is_sorted(t_system *sys)
 {
@@ -20,49 +21,38 @@ int	is_sorted(t_system *sys)
 int main(int ac, char **av)
 {
 	t_system *sys;
+	char *str;
 
+
+	str = NULL;
+	str = malloco(1);
+	str[0] = '\0';
 	sys = init(ac, av);
 	//print_sys(sys);
 	clean_input(sys);
+	rec_start(sys, &str, 5);
+	//m_ab(sys, sys->size, &str);
+	print_sys(sys);
+
+	//new_sort(sys, &str);
 	//print_sys(sys);
-	m_ab_first(sys, sys->size);
-	//print_sys(sys);
-	printf("sorted :%d\n", is_sorted(sys));
+
 /*
-		print_sys(sys);
-		printf("a_b 8\n");
-	a_b(sys, 8);
-		print_sys(sys);
-		printf("a_b 4\n");
-	a_b(sys, 4);
-		print_sys(sys);
-		printf("a_b 2\n");
-	a_b(sys, 2);
-		print_sys(sys);
-		printf("b_a 2\n");
-	b_a(sys, 1);
-		print_sys(sys);
-		printf("b_a 4\n");
-	b_a(sys, 2);
-		print_sys(sys);
-		printf("b_a 1\n");
-	b_a(sys, 1);
-		print_sys(sys);
-		printf("b_a 4\n");
-	b_a(sys, 4);
-		print_sys(sys);
-		printf("a_b 2\n");
-	a_b(sys, 2);
-		print_sys(sys);
-		printf("b_a 1\n");
-	b_a(sys, 1);
-		print_sys(sys);
-		printf("b_a 2\n");
-	b_a(sys, 2);
-		print_sys(sys);
-		printf("b_a 1\n");
-	b_a(sys, 1);
-		print_sys(sys);
-		printf("\n");
+	int	clean;
+	clean = 0;
+	while (!clean)
+	{
+		clean = clean_str(str);
+	}
 */
+	printf("%s", str);
+//	printf("sorted :%d\n", is_sorted(sys));
+//	print_sys(sys);
+
+	/*
+
+	    str = strdup("01\n34\n67\n89\n");
+		printf("%s", str);
+		str_rm_part(str, 3, 6);
+	*/
 }

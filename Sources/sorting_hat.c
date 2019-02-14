@@ -75,7 +75,7 @@ int	get_median_s(int *arr, int size)
 	}
 	return (med);
 }
-
+/*
 void	push_half(t_system *sys)
 {
 	int	median;
@@ -94,70 +94,67 @@ void	push_half(t_system *sys)
 		i++;
 	}
 }
-
-void	a_b(t_system *sys, int size)
+*/
+void	a_b(t_system *sys, int size, char **str)
 {
 	int	median;
 	int	rev_count;
 	int	i;
+	int	bottom;
 
-//	printf("a_b(%d)\n\n", size);
-//	print_sys(sys);
-//	printf("sorted_till :%d\n", sorted_till(sys));
 
 	i = 0;
 	rev_count = 0;
+	bottom = (size == sys->a->size);
 	median = get_median_s(sys->a->array, size);
 	while (i < size)
 	{
 		if (sys->a->array[0] <= median)
-			pa(sys);
+			pa(sys, str);
 		else
 		{
-			ra(sys);
+			ra(sys, str);
 			rev_count++;
 		}
 		i++;
 	}
-	while (rev_count--)
-		rra(sys);
+	while (!bottom && rev_count--)
+		rra(sys, str);
 //	print_sys(sys);
 //	printf("\n\n");
 }
 
-void	b_a(t_system *sys, int size)
+void	b_a(t_system *sys, int size, char **str)
 {
 	int	median;
 	int	rev_count;
 	int	i;
-
-//	printf("b_a(%d)\n\n", size);
-//	print_sys(sys);
-//	printf("sorted_till :%d\n", sorted_till(sys));
+	int bottom;
 
 	i = 0;
 	rev_count = 0;
+	bottom = (size == sys->b->size);
 	median = get_median(sys->b->array, size);
 	while (i < size)
 	{
 		if (sys->b->array[0] >= median)
-			pb(sys);
+			pb(sys, str);
 		else
 		{
-			rb(sys);
+			rb(sys, str);
 			rev_count++;
 		}
 		i++;
 	}
-	while (rev_count--)
-		rrb(sys);
+	while (!bottom && rev_count--)
+		rrb(sys, str);
 
 //	print_sys(sys);
 //	printf("\n\n");
 
 }
 
-void	a_b_first(t_system *sys, int size)
+void	a_b_first(t_system *sys, int size, char **str)
 {
 	int	median;
 	int	i;
@@ -167,9 +164,9 @@ void	a_b_first(t_system *sys, int size)
 	while (i < size)
 	{
 		if (sys->a->array[0] <= median)
-			pa(sys);
+			pa(sys, str);
 		else
-			ra(sys);
+			ra(sys, str);
 		i++;
 	}
 //	printf("a_b(%d)\n\n", size);

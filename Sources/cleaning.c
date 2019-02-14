@@ -7,8 +7,6 @@ void	set_next(t_system *sys, int value, int iter)
 	int	crushed;
 	int	nxt_index;
 
-//	print_sys(sys);
-//	printf("value :%d, iter :%d\n", value, iter);
 	i = -1;
 	nxt_index = 0;
 	if (iter == sys->size)
@@ -56,7 +54,7 @@ int		sorted_till(t_system *sys)
 	if (sys->a->size == 0)
 		return (0);
 	i = sys->a->size - 1;
-	while (i && sys->a->array[i] == sys->size + i - sys->a->size )
+	while (i > -1 && sys->a->array[i] == sys->size + i - sys->a->size )
 		i--;
 	return (sys->a->size - i - 1);
 }
