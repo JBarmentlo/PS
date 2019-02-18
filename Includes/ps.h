@@ -14,13 +14,13 @@ typedef struct   s_system
   t_stack       *b;
 }				t_system;
 
-typedef struct	sop_list
+typedef struct		sop_list
 {
 	void			(*f)(t_system*, char**);
 	struct sop_list	*next;
-}				t_op_list;
+}					t_op_list;
 
-void			*malloco(size_t size);
+void  			*malloco(size_t size);
 void			ft_append(char **str, char *add);
 t_system		*sys_clone(t_system *sys);
 void			sys_free(t_system *sys);
@@ -65,5 +65,9 @@ int				str_rm_part(char *str, int begin, int end);
 
 void			new_sort(t_system *sys, char **str);
 void			rec_start(t_system *syst, char **str);
+
+void			daman(void);
+int				tab_check(char **av);
+int				baktrak(int *lst, int pos, int size);
 
 #endif

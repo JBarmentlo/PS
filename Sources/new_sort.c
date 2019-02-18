@@ -252,10 +252,11 @@ void	rec_start(t_system *syst, char **str)
 	start = NULL;
 	sys = sys_clone(syst);
 	fake = sys_fake(0 , sys->a->size, sys->b->size);
+	printf("still %d size %d\n", sorted_till(sys) ,sys->a->size);
 	if (sorted_till(sys) == sys->a->size)
 		return ;
 
-	while (bool == 0) //CYCLE THROUGH ALL STARTS;
+	while (bool == 0)
 	{
 		printf("itmax %d\n", fake->size);
 		bool = recsa(sys, fake, &start, 0);

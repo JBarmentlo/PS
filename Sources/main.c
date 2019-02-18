@@ -20,6 +20,7 @@ int	is_sorted(t_system *sys)
 
 int main(int ac, char **av)
 {
+
 	t_system *sys;
 	char *str;
 
@@ -29,24 +30,23 @@ int main(int ac, char **av)
 	str[0] = '\0';
 	sys = init(ac, av);
 	clean_input(sys);
-	pa(sys, NULL);
-	pa(sys, NULL);
-	pa(sys, NULL);
-	pa(sys, NULL);
-	print_sys(sys);
-	rec_start(sys, &str);
-	print_sys(sys);
-	printf("yop\n");
-	//m_ab(sys, sys->size, &str);
+//	pa(sys, NULL);
+//	pa(sys, NULL);
+//	pa(sys, NULL);
+//	/pa(sys, NULL);
+//	print_sys(sys);
+	//rec_start(sys, &str);
+	//print_sys(sys);
+//	printf("yop\n");
+
+//	m_ab(sys, sys->size, &str);
 	//print_sys(sys);
 	//printf("final\n");
-	print_sys(sys);
-
-printf("yop\n");
-
+	//print_sys(sys);;
+/*
 	printf("str :\n%s\n", str);
 	printf("sorted :%d\n", is_sorted(sys));
-
-printf("yop\n");
+*/
+daman();
 
 }
