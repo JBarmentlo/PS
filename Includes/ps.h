@@ -14,11 +14,18 @@ typedef struct   s_system
   t_stack       *b;
 }				t_system;
 
-typedef struct		sop_list
+typedef struct		s_op_list
 {
 	void			(*f)(t_system*, char**);
-	struct sop_list	*next;
+	struct s_op_list	*next;
 }					t_op_list;
+
+typedef struct		s_end_list
+{
+	char			*str;
+	struct s_end_list	*next;
+	struct s_end_list	*prev;
+}					t_end_list;
 
 void  			*malloco(size_t size);
 void			ft_append(char **str, char *add);
