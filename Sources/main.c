@@ -20,26 +20,24 @@ int	is_sorted(t_system *sys)
 
 int main(int ac, char **av)
 {
+ 
+	t_system	*sys;
+	char		*str;
+	t_end_list	*start;
 
-	t_system *sys;
-	char *str;
-
-
+	start = NULL;
 	str = NULL;
 	str = malloco(1);
 	str[0] = '\0';
 	sys = init(ac, av);
 	clean_input(sys);
 
-	//print_sys(sys);
 	m_ab(sys, sys->size, &str);
-	//print_sys(sys);
-	//printf("final\n");
-	//print_sys(sys);;
-
+	printf("ptt:%p\n", &start);
+	//str_to_list(&start, str);
+	//print_list(&start);
+	//printf("lst_size %d\n", count_end_list(&start));
 	printf("str :\n%s\n", str);
-//	printf("sorted :%d\n", is_sorted(sys));
-
-
+	printf("sorted :%d\n", is_sorted(sys));
 
 }

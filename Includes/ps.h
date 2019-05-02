@@ -20,12 +20,14 @@ typedef struct		s_op_list
 	struct s_op_list	*next;
 }					t_op_list;
 
-typedef struct		s_end_list
+typedef struct			s_end_list
 {
-	void (*op)(t_system*, char**);
-	struct s_end_list			*next;
-	struct s_end_list			*prev;
-}					t_end_list;
+	void 				(*op)(t_system*, char**);
+	struct s_end_list	*next;
+	struct s_end_list	*prev;
+}						t_end_list;
+
+typedef void (*t_op)(t_system*, char**);
 
 void  			*malloco(size_t size);
 void			ft_append(char **str, char *add);
@@ -49,6 +51,10 @@ void			sb(t_system *sys, char **str);
 void			pb(t_system *sys, char **str);
 void			rb(t_system *sys, char **str);
 void			rrb(t_system *sys, char **str);
+
+void			ss(t_system *sys, char **str);
+void			rr(t_system *sys, char **str);
+void			rrr(t_system *sys, char **str);
 
 int				get_median(int *array, int size);
 int				get_median_s(int *array, int size);
@@ -76,5 +82,10 @@ void			rec_start(t_system *syst, char **str);
 void			daman(void);
 int				tab_check(char **av);
 int				baktrak(int *lst, int pos, int size);
+
+void			str_to_list(t_end_list **start, char *str);
+void			print_list(t_end_list **start);
+int				count_end_list(t_end_list **start);
+void			print_op(t_op op);
 
 #endif

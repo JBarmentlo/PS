@@ -3,25 +3,24 @@
 #include <stdlib.h>
 
 
-typedef void (*t_op)(t_system*, char**);
 
-
-t_op	str_to_t_op_two(char *str) //"rratt" will return &rra
+#include<stdio.h>
+t_op	str_to_t_op_two(char *str)
 {
 	if (*str == 'r')
 	{
 		if (str[1] != 'r')
 		{
-			if (str[1] == 'a')
+			if (str[1] == 'a' && (str[2] == '\n' || str[2] == '\0'))
 				return (&ra);
-			if (str[1] == 'b')
+			if (str[1] == 'b' && (str[2] == '\n' || str[2] == '\0'))
 				return (&rb);
 		}
 		else if (str[1] == 'r')
 		{
-			if (str[2] == 'a')
+			if (str[2] == 'a' && (str[3] == '\n' || str[3] == '\0'))
 				return (&rra);
-			if (str[2] == 'b')
+			if (str[2] == 'b' && (str[3] == '\n' || str[3] == '\0'))
 				return (&rrb);
 		}
 	}
@@ -32,19 +31,19 @@ t_op		str_to_t_op(char *str)
 {
 	if (str == NULL || *str == '\0' || str[1] == '\0')
 		return (NULL);
-	if (*str == 'p')
-	{
-		if (str[1] == 'a')
-			return (&pa);
-		if (str[1] == 'b')
-			return (&pb);
-	}
 	if (*str == 's')
 	{
-		if (str[1] == 'a')
+		if (str[1] == 'a' && (str[2] == '\n' || str[2] == '\0'))
 			return (&sa);
-		if (str[1] == 'b')
+		if (str[1] == 'b' && (str[2] == '\n' || str[2] == '\0'))
 			return (&sb);
+	}
+	if (*str == 'p')
+	{
+		if (str[1] == 'a' && (str[2] == '\n' || str[2] == '\0'))
+			return (&pa);
+		if (str[1] == 'b' && (str[2] == '\n' || str[2] == '\0'))
+			return (&pb);
 	}
 	return (str_to_t_op_two(str));
 }
@@ -65,18 +64,19 @@ void		free_elem(t_end_list *elem)
 	free(elem);
 }
 
-void		push_back(t_end_list **start, t_end_list *elem)
+void		push_back(t_end_list **any, t_end_list *elem)
 {
 	t_end_list	*it;
-
-	it = *start;
-	while (it && it->next)
+	if (*any == NULL)
 	{
-		elem->prev = it;
-		it = it->next;
+		*any = elem;
+		return ;
 	}
-	it = elem;
-
+	it = *any;
+	while (it && it->next)
+		it = it->next;
+	it->next = elem;
+	elem->prev = it;
 }
 
 void		add_new_to_list(t_end_list **start, t_op op)
@@ -96,40 +96,12 @@ void		rm_elem(t_end_list **start, t_end_list *elem)
 	if (elem->next)
 		elem->next->prev = elem->prev;
 }
-/*
-char		*line_copy(char **str_in)
-{
-	int		i;
-	int		j;
-	char	*out;
-	char	*str;
-
-	str = *str_in;
-	i = 0;
-	while (str && str[i] && str[i] != '\n')
-		i++;
-	out = malloco(i + 1);
-	out[i] = '\0';
-	j = 0;
-	while (j < i)
-	{
-		out[j] = **str_in;
-		(*str_in)++;
-		j++;
-	}
-	if (**str_in)
-		(*str_in)++;
-	return (out);
-}
-*/
 
 void		str_to_list(t_end_list **start, char *str)
 {
 	t_op		op;
 
-	start = NULL;
-
-	while (*str)
+	while (str && *str)
 	{
 		op = str_to_t_op(str);
 		if (op != NULL)
@@ -139,4 +111,82 @@ void		str_to_list(t_end_list **start, char *str)
 		if (*str)
 			str++;
 	}
+}
+
+void		print_list(t_end_list **start)
+{
+	t_end_list	*it;
+
+	if (start == NULL)
+		return ;
+	it = *start;
+	while (it)
+	{
+		if (it->op == &pa)
+			printf("pa\n");
+		else if (it->op == &pb)
+			printf("pb\n");
+		else if (it->op == &sa)
+			printf("sa\n");
+		else if (it->op == &sb)
+			printf("sb\n");
+		else if (it->op == &ra)
+			printf("ra\n");
+		else if (it->op == &rb)
+			printf("rb\n");
+		else if (it->op == &rr)
+			printf("rr\n");
+		else if (it->op == &rra)
+			printf("rra\n");
+		else if (it->op == &rrb)
+			printf("rrb\n");
+		else if (it->op == &rrr)
+			printf("rrr\n");
+		else
+			printf("sheit\n");
+		it = it->next;
+	}
+}
+
+void		print_op(t_op op)
+{
+	if (op == &pa)
+		printf("pa\n");
+	else if (op == &pb)
+		printf("pb\n");
+	else if (op == &ra)
+		printf("ra\n");
+	else if (op == &rb)
+		printf("rb\n");
+	else if (op == &sa)
+		printf("sa\n");
+	else if (op == &sb)
+		printf("sb\n");
+	else if (op == &rr)
+		printf("rr\n");
+	else if (op == &rra)
+		printf("rra\n");
+	else if (op == &rrb)
+		printf("rrb\n");
+	else if (op == &rrr)
+		printf("rrr\n");
+	else
+		printf("sheit\n");
+}
+
+int	count_end_list(t_end_list **start)
+{
+	t_end_list	*it;
+	int			out;
+
+	if (start == NULL)
+		return (0);
+	it = *start;
+	out = 0;
+	while (it)
+	{
+		it = it->next;
+		out++;
+	}
+	return (out);
 }
