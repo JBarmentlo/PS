@@ -30,23 +30,16 @@ int main(int ac, char **av)
 	str[0] = '\0';
 	sys = init(ac, av);
 	clean_input(sys);
-//	pa(sys, NULL);
-//	pa(sys, NULL);
-//	pa(sys, NULL);
-//	/pa(sys, NULL);
-//	print_sys(sys);
-	//rec_start(sys, &str);
-	//print_sys(sys);
-//	printf("yop\n");
 
-//	m_ab(sys, sys->size, &str);
+	//print_sys(sys);
+	m_ab(sys, sys->size, &str);
 	//print_sys(sys);
 	//printf("final\n");
 	//print_sys(sys);;
-/*
+
 	printf("str :\n%s\n", str);
-	printf("sorted :%d\n", is_sorted(sys));
-*/
-daman();
+//	printf("sorted :%d\n", is_sorted(sys));
+
+
 
 }

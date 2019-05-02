@@ -22,9 +22,9 @@ typedef struct		s_op_list
 
 typedef struct		s_end_list
 {
-	char			*str;
-	struct s_end_list	*next;
-	struct s_end_list	*prev;
+	void (*op)(t_system*, char**);
+	struct s_end_list			*next;
+	struct s_end_list			*prev;
 }					t_end_list;
 
 void  			*malloco(size_t size);

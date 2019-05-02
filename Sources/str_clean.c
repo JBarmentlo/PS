@@ -3,31 +3,58 @@
 #include <stdlib.h>
 
 
-static char	*ft_strdup(char *str)
-{
-	int	i = 0;
-	int	j = 0;
-	char	*out;
+typedef void (*t_op)(t_system*, char**);
 
-	while (str && str[i])
-		i++;
-	if ( i == 0)
-		return (NULL);
-	out = malloco(i + 1);
-	while (i && j <= i)
+
+t_op	str_to_t_op_two(char *str) //"rratt" will return &rra
+{
+	if (*str == 'r')
 	{
-		out[j] = str[i];
-		j++;
+		if (str[1] != 'r')
+		{
+			if (str[1] == 'a')
+				return (&ra);
+			if (str[1] == 'b')
+				return (&rb);
+		}
+		else if (str[1] == 'r')
+		{
+			if (str[2] == 'a')
+				return (&rra);
+			if (str[2] == 'b')
+				return (&rrb);
+		}
 	}
-	return (out);
+	return (NULL);
 }
 
-t_end_list	*new_end_list(char	*str)
+t_op		str_to_t_op(char *str)
+{
+	if (str == NULL || *str == '\0' || str[1] == '\0')
+		return (NULL);
+	if (*str == 'p')
+	{
+		if (str[1] == 'a')
+			return (&pa);
+		if (str[1] == 'b')
+			return (&pb);
+	}
+	if (*str == 's')
+	{
+		if (str[1] == 'a')
+			return (&sa);
+		if (str[1] == 'b')
+			return (&sb);
+	}
+	return (str_to_t_op_two(str));
+}
+
+t_end_list	*new_end_list(t_op ptr)
 {
 	t_end_list	*new;
 
 	new = malloco(sizeof(t_end_list));
-	new->str = ft_strdup(str);
+	new->op = ptr;
 	new->next = NULL;
 	new->prev = NULL;
 	return (new);
@@ -35,9 +62,6 @@ t_end_list	*new_end_list(char	*str)
 
 void		free_elem(t_end_list *elem)
 {
-	free(elem->str);
-	free(elem->next);
-	free(elem->prev);
 	free(elem);
 }
 
@@ -55,11 +79,11 @@ void		push_back(t_end_list **start, t_end_list *elem)
 
 }
 
-void		add_new_to_list(t_end_list **start, char *str)
+void		add_new_to_list(t_end_list **start, t_op op)
 {
 	t_end_list	*new;
 
-	new = new_end_list(str);
+	new = new_end_list(op);
 	push_back(start, new);
 }
 
@@ -72,7 +96,7 @@ void		rm_elem(t_end_list **start, t_end_list *elem)
 	if (elem->next)
 		elem->next->prev = elem->prev;
 }
-
+/*
 char		*line_copy(char **str_in)
 {
 	int		i;
@@ -97,16 +121,22 @@ char		*line_copy(char **str_in)
 		(*str_in)++;
 	return (out);
 }
+*/
 
 void		str_to_list(t_end_list **start, char *str)
 {
-	char		*str_cp;
+	t_op		op;
 
-	str_cp = str;
 	start = NULL;
 
-	while (*str_cp)
+	while (*str)
 	{
-		add_new_to_list(start, line_copy(&str_cp));
+		op = str_to_t_op(str);
+		if (op != NULL)
+			add_new_to_list(start, op);
+		while (*str && *str != '\n')
+			str++;
+		if (*str)
+			str++;
 	}
 }
