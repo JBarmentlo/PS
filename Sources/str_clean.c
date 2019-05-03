@@ -89,7 +89,7 @@ void		add_new_to_list(t_end_list **start, t_op op)
 
 void		rm_elem(t_end_list **start, t_end_list *elem)
 {
-	if (start == &elem)
+	if (*start == elem)
 		*start = (*start)->next;
 	if (elem->prev)
 		elem->prev->next = elem->next;
@@ -189,4 +189,33 @@ int	count_end_list(t_end_list **start)
 		out++;
 	}
 	return (out);
+}
+
+int	neutralise(t_op one, t_op two)
+{
+	if (one == &pa && two == &pb)
+		return (1);
+	if (one == &ra && two == &rra)
+		return (1);
+	if (one == &rb && two == &rrb)
+		return (1);
+	return (0);
+}
+
+void	simplify(t_end_list **start)
+{
+	t_end_list	*it;
+
+	if (*start == NULL)
+		return ;
+	it = *start;
+	while (it && it->next)
+	{
+		if (neutralise(it->op, it->next->op))
+		{
+			rm_elem(start, it->next);
+			rm_elem(start, it);
+		}
+		it = it->next;
+	}
 }

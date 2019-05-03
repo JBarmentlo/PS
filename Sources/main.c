@@ -18,6 +18,26 @@ int	is_sorted(t_system *sys)
 	return (1);
 }
 
+int	is_walid(t_system *sys)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < sys->size)
+	{
+		j = i + 1;
+		while (j < sys->size)
+		{
+			if (sys->a->array[i] == sys->a->array[j])
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
 int main(int ac, char **av)
 {
  
@@ -30,14 +50,11 @@ int main(int ac, char **av)
 	str = malloco(1);
 	str[0] = '\0';
 	sys = init(ac, av);
+	if (!is_walid(sys))
+		return (-1);
 	clean_input(sys);
-
 	m_ab(sys, sys->size, &str);
-	printf("ptt:%p\n", &start);
-	//str_to_list(&start, str);
-	//print_list(&start);
-	//printf("lst_size %d\n", count_end_list(&start));
-	printf("str :\n%s\n", str);
-	printf("sorted :%d\n", is_sorted(sys));
-
+	str_to_list(&start, str);
+	simplify(&start);
+	print_list(&start);
 }

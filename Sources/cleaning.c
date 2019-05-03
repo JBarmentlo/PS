@@ -1,6 +1,5 @@
 #include "ps.h"
 
-#include <stdio.h>
 void	set_next(t_system *sys, int value, int iter)
 {
 	int	i;
@@ -15,8 +14,9 @@ void	set_next(t_system *sys, int value, int iter)
 		if (sys->a->array[i] > value)
 			nxt_index = i;
 	i = -1;
-	while (i++ + 1 < sys->a->size)//check dat i++
-		if (sys->a->array[i] < sys->a->array[nxt_index] && sys->a->array[i] > value)
+	while (i++ + 1 < sys->a->size)
+		if (sys->a->array[i] < sys->a->array[nxt_index]
+			&& sys->a->array[i] > value)
 			nxt_index = i;
 	crushed = sys->a->array[nxt_index];
 	sys->a->array[nxt_index] = iter;
@@ -54,7 +54,7 @@ int		sorted_till(t_system *sys)
 	if (sys->a->size == 0)
 		return (0);
 	i = sys->a->size - 1;
-	while (i > -1 && sys->a->array[i] == sys->size + i - sys->a->size )
+	while (i > -1 && sys->a->array[i] == sys->size + i - sys->a->size)
 		i--;
 	return (sys->a->size - i - 1);
 }

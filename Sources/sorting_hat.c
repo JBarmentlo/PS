@@ -45,7 +45,6 @@ int	count_smaller(int *arr, int size, int value)
 	return (out);
 }
 
-#include <stdio.h>
 int	get_median(int *arr, int size)
 {
 	int	med;
@@ -75,26 +74,7 @@ int	get_median_s(int *arr, int size)
 	}
 	return (med);
 }
-/*
-void	push_half(t_system *sys)
-{
-	int	median;
-	int	i;
-	int	size;
 
-	i = 0;
-	size = sys->a->size;
-	median = get_median(sys->a->array, size);
-	while (i <= size)
-	{
-		if (sys->a->array[0] >= median)
-			pa(sys);
-		else
-			ra(sys);
-		i++;
-	}
-}
-*/
 void	pa_plus(t_system *sys, char **str, int *sent)
 {
 	*sent = *sent + 1;
@@ -162,10 +142,6 @@ void	b_a(t_system *sys, int size, char **str)
 	}
 	while (!bottom && rev_count--)
 		rrb(sys, str);
-
-//	print_sys(sys);
-//	printf("\n\n");
-
 }
 
 void	a_b_first(t_system *sys, int size, char **str)
@@ -183,7 +159,4 @@ void	a_b_first(t_system *sys, int size, char **str)
 			ra(sys, str);
 		i++;
 	}
-//	printf("a_b(%d)\n\n", size);
-//	print_sys(sys);
-//	printf("sorted_till :%d\n", sorted_till(sys));
 }

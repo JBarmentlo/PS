@@ -154,9 +154,4 @@ void		daman(void)
 
 
 }
-/*
-t_system	*next_sys(t_system *sys)
-{
 
-}
-*/

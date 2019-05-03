@@ -87,5 +87,6 @@ void			str_to_list(t_end_list **start, char *str);
 void			print_list(t_end_list **start);
 int				count_end_list(t_end_list **start);
 void			print_op(t_op op);
+void			simplify(t_end_list **start);
 
 #endif
