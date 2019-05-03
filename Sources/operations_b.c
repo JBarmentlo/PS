@@ -1,6 +1,5 @@
 #include "ps.h"
 
-#include <stdio.h>
 void	sb(t_system *sys, char **str)
 {
 	int	*arr;
@@ -8,7 +7,7 @@ void	sb(t_system *sys, char **str)
 
 	arr = sys->b->array;
 	if (sys->b->size < 2)
-		return;
+		return ;
 	tmp = arr[0];
 	arr[0] = arr[1];
 	arr[1] = tmp;
@@ -22,9 +21,8 @@ void	pb(t_system *sys, char **str)
 
 	a = sys->a;
 	b = sys->b;
-
 	if (b->size == 0)
-		return;
+		return ;
 	a->array--;
 	a->array[0] = b->array[0];
 	b->array++;
@@ -42,7 +40,7 @@ void	rrb(t_system *sys, char **str)
 	b = sys->b;
 	i = b->size - 1;
 	if (b->size <= 1)
-		return;
+		return ;
 	tmp = b->array[i];
 	while (i)
 	{
@@ -62,7 +60,7 @@ void	rb(t_system *sys, char **str)
 	b = sys->b;
 	i = 0;
 	if (b->size <= 1)
-		return;
+		return ;
 	tmp = b->array[i];
 	while (i + 1 < b->size)
 	{

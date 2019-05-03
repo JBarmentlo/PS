@@ -1,11 +1,9 @@
 #include <string.h>
 #include "ps.h"
+#include "libft.h"
 #include <stdlib.h>
 
-
-
-#include<stdio.h>
-t_op	str_to_t_op_two(char *str)
+t_op		str_to_t_op_two(char *str)
 {
 	if (*str == 'r')
 	{
@@ -67,6 +65,7 @@ void		free_elem(t_end_list *elem)
 void		push_back(t_end_list **any, t_end_list *elem)
 {
 	t_end_list	*it;
+
 	if (*any == NULL)
 	{
 		*any = elem;
@@ -113,6 +112,32 @@ void		str_to_list(t_end_list **start, char *str)
 	}
 }
 
+void		print_op(t_op op)
+{
+	if (op == &pa)
+		ft_printf("pa\n");
+	else if (op == &pb)
+		ft_printf("pb\n");
+	else if (op == &ra)
+		ft_printf("ra\n");
+	else if (op == &rb)
+		ft_printf("rb\n");
+	else if (op == &sa)
+		ft_printf("sa\n");
+	else if (op == &sb)
+		ft_printf("sb\n");
+	else if (op == &rr)
+		ft_printf("rr\n");
+	else if (op == &rra)
+		ft_printf("rra\n");
+	else if (op == &rrb)
+		ft_printf("rrb\n");
+	else if (op == &rrr)
+		ft_printf("rrr\n");
+	else
+		ft_printf("sheit\n");
+}
+
 void		print_list(t_end_list **start)
 {
 	t_end_list	*it;
@@ -122,59 +147,12 @@ void		print_list(t_end_list **start)
 	it = *start;
 	while (it)
 	{
-		if (it->op == &pa)
-			printf("pa\n");
-		else if (it->op == &pb)
-			printf("pb\n");
-		else if (it->op == &sa)
-			printf("sa\n");
-		else if (it->op == &sb)
-			printf("sb\n");
-		else if (it->op == &ra)
-			printf("ra\n");
-		else if (it->op == &rb)
-			printf("rb\n");
-		else if (it->op == &rr)
-			printf("rr\n");
-		else if (it->op == &rra)
-			printf("rra\n");
-		else if (it->op == &rrb)
-			printf("rrb\n");
-		else if (it->op == &rrr)
-			printf("rrr\n");
-		else
-			printf("sheit\n");
+		print_op(it->op);
 		it = it->next;
 	}
 }
 
-void		print_op(t_op op)
-{
-	if (op == &pa)
-		printf("pa\n");
-	else if (op == &pb)
-		printf("pb\n");
-	else if (op == &ra)
-		printf("ra\n");
-	else if (op == &rb)
-		printf("rb\n");
-	else if (op == &sa)
-		printf("sa\n");
-	else if (op == &sb)
-		printf("sb\n");
-	else if (op == &rr)
-		printf("rr\n");
-	else if (op == &rra)
-		printf("rra\n");
-	else if (op == &rrb)
-		printf("rrb\n");
-	else if (op == &rrr)
-		printf("rrr\n");
-	else
-		printf("sheit\n");
-}
-
-int	count_end_list(t_end_list **start)
+int			count_end_list(t_end_list **start)
 {
 	t_end_list	*it;
 	int			out;
@@ -191,7 +169,7 @@ int	count_end_list(t_end_list **start)
 	return (out);
 }
 
-int	neutralise(t_op one, t_op two)
+int			neutralise(t_op one, t_op two)
 {
 	if (one == &pa && two == &pb)
 		return (1);
@@ -202,7 +180,7 @@ int	neutralise(t_op one, t_op two)
 	return (0);
 }
 
-void	simplify(t_end_list **start)
+void		simplify(t_end_list **start)
 {
 	t_end_list	*it;
 

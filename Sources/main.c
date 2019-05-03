@@ -9,7 +9,7 @@ int	is_sorted(t_system *sys)
 	if (sys->size != sys->a->size)
 		return (0);
 	i = 0;
-	while (i + 1 < sys->size) //SEGFAULT !!??
+	while (i + 1 < sys->size)
 	{
 		if (sys->a->array[i] > sys->a->array[i + 1])
 			return (0);
@@ -38,9 +38,8 @@ int	is_walid(t_system *sys)
 	return (1);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
- 
 	t_system	*sys;
 	char		*str;
 	t_end_list	*start;

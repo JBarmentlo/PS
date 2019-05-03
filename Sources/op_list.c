@@ -1,7 +1,6 @@
 #include "ps.h"
 #include <stdlib.h>
 
-#include <stdio.h>
 void	pf_list(t_op_list **start, void (*ff)(t_system*, char**))
 {
 	t_op_list	*node;
@@ -16,6 +15,7 @@ void	apply_list(t_op_list **start, t_system *sys, char **str)
 {
 	t_op_list	*it;
 	t_op_list	*tmp;
+
 	it = *start;
 	while (it)
 	{

@@ -1,6 +1,7 @@
 #ifndef PS_H
 # define PS_H
 # include <string.h>
+# define IT_MAX 15
 typedef struct  s_stack
 {
   int           size;
@@ -71,8 +72,6 @@ void			m_ab(t_system *sys, int size, char **str);
 void			clean_input(t_system *sys);
 int				sorted_till(t_system *sys);
 
-void			sort_three(t_system *sys, char **str);
-
 int				clean_str(char *str);
 int				str_rm_part(char *str, int begin, int end);
 
@@ -88,5 +87,14 @@ void			print_list(t_end_list **start);
 int				count_end_list(t_end_list **start);
 void			print_op(t_op op);
 void			simplify(t_end_list **start);
+
+int				recpa(t_system *sys, t_system *og_sys, t_op_list **start, int it);
+int				recpb(t_system *sys, t_system *og_sys, t_op_list **start, int it);
+int				recsa(t_system *sys, t_system *og_sys, t_op_list **start,int it);
+int				recsb(t_system *sys, t_system *og_sys, t_op_list **start, int it);
+int				recrb(t_system *sys, t_system *og_sys, t_op_list **start, int it);
+int				recrrb(t_system *sys, t_system *og_sys, t_op_list **start,  int it);
+int				recra(t_system *sys, t_system *og_sys, t_op_list **start, int it);
+int				recrra(t_system *sys, t_system *og_sys, t_op_list **start, int it);
 
 #endif

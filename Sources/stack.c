@@ -19,7 +19,7 @@ void		*malloco(size_t size)
 t_system	*init(int ac, char **av)
 {
 	t_system	*out;
-	int 		i;
+	int			i;
 
 	out = (t_system*)malloco(sizeof(t_system));
 	out->size = ac - 1;
@@ -42,7 +42,7 @@ t_system	*init(int ac, char **av)
 t_system	*sys_clone(t_system *sys)
 {
 	t_system	*out;
-	int 		i;
+	int			i;
 
 	out = (t_system*)malloco(sizeof(t_system));
 	out->size = sys->size;
@@ -63,7 +63,6 @@ t_system	*sys_clone(t_system *sys)
 			out->b->array[i] = sys->b->array[i];
 		i++;
 	}
-
 	return (out);
 }
 
@@ -71,7 +70,6 @@ void		sys_free(t_system *sys)
 {
 	sys->a->array = sys->a->array - sys->size + sys->a->size;
 	sys->b->array = sys->b->array - sys->size + sys->b->size;
-
 	free(sys->a->array);
 	free(sys->b->array);
 	free(sys->a);
@@ -79,7 +77,7 @@ void		sys_free(t_system *sys)
 	free(sys);
 }
 
-void 	print_sys(t_system *sys)
+void	print_sys(t_system *sys)
 {
 	int	i;
 
@@ -94,7 +92,8 @@ void 	print_sys(t_system *sys)
 			else
 				printf("|       |");
 			if (i >= sys->size - sys->b->size)
-				printf("| %5d |\n", sys->b->array[sys->b->size - sys->size + i]);
+				printf("| %5d |\n",
+					sys->b->array[sys->b->size - sys->size + i]);
 			else
 				printf("|       |\n");
 		}
