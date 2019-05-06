@@ -1,5 +1,4 @@
 #include "ps.h"
-#include <stdio.h>
 #include <string.h>
 
 int	is_sorted(t_system *sys)
@@ -44,11 +43,12 @@ int	main(int ac, char **av)
 	char		*str;
 	t_end_list	*start;
 
+	ac++;
 	start = NULL;
 	str = NULL;
 	str = malloco(1);
 	str[0] = '\0';
-	sys = init(ac, av);
+	sys = init(av);
 	if (!is_walid(sys))
 		return (-1);
 	clean_input(sys);

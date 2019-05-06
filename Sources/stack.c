@@ -1,5 +1,6 @@
 
 #include "ps.h"
+#include "libft.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -16,7 +17,35 @@ void		*malloco(size_t size)
 	return (out);
 }
 
-t_system	*init(int ac, char **av)
+t_system	*init(char **av)
+{
+	t_system	*out;
+	char		**tab;
+	int			i;
+
+	out = (t_system*)malloco(sizeof(t_system));
+	tab = ft_strsplit(av[1],' ');
+	i = 0;
+	while (tab[i] != NULL)
+		i++;
+	out->size = i;
+	out->a = (t_stack*)malloco(sizeof(t_stack));
+	out->b = (t_stack*)malloco(sizeof(t_stack));
+	out->a->array = (int*)malloco(out->size * 4);
+	out->b->array = (int*)malloco(out->size * 4);
+	out->b->array = out->b->array + out->size;
+	out->a->size = out->size;
+	out->b->size = 0;
+	i = 0;
+	while (i < out->size)
+	{
+		out->a->array[i] = atoi(tab[i]);
+		i++;
+	}
+	return (out);
+}
+
+t_system	*init_old(int ac, char **av)
 {
 	t_system	*out;
 	int			i;

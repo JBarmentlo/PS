@@ -40,7 +40,7 @@ void			free_sys_fake(t_system *sys);
 void			apply_list(t_op_list **start, t_system *sys, char **str);
 void			pf_list(t_op_list **start, void (*ff)(t_system*, char**));
 
-t_system		*init(int ac, char **av);
+t_system		*init(char **av);
 void			print_sys(t_system *sys);
 
 void			sa(t_system *sys, char **str);
