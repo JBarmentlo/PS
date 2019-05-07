@@ -19,7 +19,7 @@ void	set_next(t_system *sys, int value, int iter)
 			&& sys->a->array[i] > value)
 			nxt_index = i;
 	crushed = sys->a->array[nxt_index];
-	sys->a->array[nxt_index] = iter;
+	sys->a->array[nxt_index] = iter -2147483648;
 	if (iter < sys->size - 1)
 		set_next(sys, crushed, iter + 1);
 }
@@ -38,13 +38,21 @@ void	set_first(t_system *sys)
 			min = i;
 	}
 	crushed = sys->a->array[min];
-	sys->a->array[min] = 0;
+	sys->a->array[min] = -2147483648;
 	set_next(sys, crushed, 1);
 }
 
 void	clean_input(t_system *sys)
 {
+	int	i;
+
 	set_first(sys);
+	i = 0;
+	while (i < sys->size)
+	{
+		sys->a->array[i] = sys->a->array[i] + 2147483648;
+		i++;
+	}
 }
 
 int		sorted_till(t_system *sys)

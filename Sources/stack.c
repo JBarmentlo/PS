@@ -5,18 +5,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-void		*malloco(size_t size)
-{
-	void	*out;
-
-	if (!(out = malloc(size)))
-	{
-		printf("ABORT ABORT\n");
-		exit(-1);
-	}
-	return (out);
-}
-
 t_system	*init(char **av)
 {
 	t_system	*out;
@@ -25,6 +13,7 @@ t_system	*init(char **av)
 
 	out = (t_system*)malloco(sizeof(t_system));
 	tab = ft_strsplit(av[1],' ');
+	is_super_walid(tab);
 	i = 0;
 	while (tab[i] != NULL)
 		i++;

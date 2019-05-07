@@ -97,4 +97,12 @@ int				recrrb(t_system *sys, t_system *og_sys, t_op_list **start,  int it);
 int				recra(t_system *sys, t_system *og_sys, t_op_list **start, int it);
 int				recrra(t_system *sys, t_system *og_sys, t_op_list **start, int it);
 
+
+void			only_digits(char **av);
+void			is_super_walid(char **tab);
+int				int_maxou(char *str);
+void			error(void);
+
+int				is_walid(t_system *sys);
+int				is_sorted(t_system *sys);
 #endif

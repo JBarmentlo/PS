@@ -2,15 +2,19 @@ NAME=push_swap
 CFLAGS=-Wall -Wextra -Werror
 SOURCES=stack.c operations_a.c operations_b.c operations_both.c sorting_hat.c \
 		cursive.c cleaning.c strjon.c str_clean.c new_sort.c op_list.c \
-		main.c new_sort_two.c sorting_hat_two.c
+		new_sort_two.c sorting_hat_two.c tests.c
 OBJ_FOLDER=out
 LIBFT_DIR=../libft
 OUT=$(addprefix $(OBJ_FOLDER)/,$(SOURCES:.c=.o))
 
-all: $(OUT) $(NAME)
+all: $(LIBFT_DIR)/libft.a $(OUT) out/push_swap.o out/checker.o checker $(NAME) 
 
-$(NAME): $(LIBFT_DIR)/libft.a $(OUT)
-	gcc $(CFLAGS) -o $(NAME) $(LIBFT_DIR)/libft.a $(OUT)
+$(NAME): Sources/push_swap.c
+	gcc $(CFLAGS) -o $(NAME) $(LIBFT_DIR)/libft.a out/push_swap.o $(OUT)
+
+checker: Sources/checker.c
+	gcc $(CFLAGS) -o checker $(LIBFT_DIR)/libft.a out/checker.o $(OUT)
+
 
 $(LIBFT_DIR)/libft.a:
 	@make -C $(LIBFT_DIR)
@@ -26,5 +30,6 @@ clean:
 fclean: clean
 	@make -C $(LIBFT_DIR) fclean
 	rm -rf $(NAME)
+	rm -rf checker
 
 re: fclean all
