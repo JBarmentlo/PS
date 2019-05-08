@@ -7,19 +7,19 @@ OBJ_FOLDER=out
 LIBFT_DIR=../libft
 OUT=$(addprefix $(OBJ_FOLDER)/,$(SOURCES:.c=.o))
 
-all: $(LIBFT_DIR)/libft.a $(OUT) out/push_swap.o out/checker.o checker $(NAME) 
+all: $(LIBFT_DIR)/libft.a out/push_swap.o out/checker.o checker $(NAME) 
 
-$(NAME): Sources/push_swap.c
+$(NAME): $(OUT) Sources/push_swap.c
 	gcc $(CFLAGS) -o $(NAME) $(LIBFT_DIR)/libft.a out/push_swap.o $(OUT)
 
-checker: Sources/checker.c
+checker: $(OUT) Sources/checker.c
 	gcc $(CFLAGS) -o checker $(LIBFT_DIR)/libft.a out/checker.o $(OUT)
 
 
 $(LIBFT_DIR)/libft.a:
 	@make -C $(LIBFT_DIR)
 
-$(OBJ_FOLDER)/%.o: Sources/%.c
+$(OBJ_FOLDER)/%.o: Sources/%.c Makefile ./Includes/ps.h
 	@mkdir -p $(OBJ_FOLDER)
 	gcc $(CFLAGS) -I Includes -I ../libft/includes -o $@ -c $<
 

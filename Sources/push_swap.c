@@ -23,13 +23,38 @@ int	main(int ac, char **av)
 		return (-1);
 	clean_input(sys);
 	m_ab(sys, sys->size, &str);
-	ft_printf("%s", str);
+	//ft_printf("%s", str);
 	fd = open("op", O_RDWR | O_TRUNC , S_IRWXU | S_IRWXG | S_IRWXO);
-	ft_fprintf(fd, "%s", str);
+	//ft_printf("%s", str);
+	
 	close(fd);
 	//printf("sorted:%d\n", is_sorted(sys));
 //	print_sys(sys);
-	//str_to_list(&start, str);
-	//print_list(&start);
+	str_to_list(&start, str);
+	simplify(&start);
+	print_list(&start);
 
 }
+
+
+/*
+int	main(void)
+{
+
+	t_end_list	*start;
+	t_end_list	*it;
+
+	start = NULL;
+	add_new_to_list(&start, &ra);
+	add_new_to_list(&start, &rb);
+	add_new_to_list(&start, &pa);
+	print_list(&start);
+
+	it = start;
+
+	rm_elem(&start, it);
+	printf("\n");
+	print_list(&start);
+
+}
+*/

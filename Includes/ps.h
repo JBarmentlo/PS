@@ -105,4 +105,6 @@ void			error(void);
 
 int				is_walid(t_system *sys);
 int				is_sorted(t_system *sys);
+void			add_new_to_list(t_end_list **start, t_op op);
+void			rm_elem(t_end_list **start, t_end_list *elem);
 #endif
