@@ -19,7 +19,7 @@ void	set_next(t_system *sys, int value, int iter)
 			&& sys->a->array[i] > value)
 			nxt_index = i;
 	crushed = sys->a->array[nxt_index];
-	sys->a->array[nxt_index] = iter -2147483648;
+	sys->a->array[nxt_index] = iter - 2147483648;
 	if (iter < sys->size - 1)
 		set_next(sys, crushed, iter + 1);
 }

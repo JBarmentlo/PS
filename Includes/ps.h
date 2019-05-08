@@ -105,6 +105,17 @@ void			error(void);
 
 int				is_walid(t_system *sys);
 int				is_sorted(t_system *sys);
+
 void			add_new_to_list(t_end_list **start, t_op op);
 void			rm_elem(t_end_list **start, t_end_list *elem);
+void			str_to_list(t_end_list **start, char *str);
+void			print_op(t_op op);
+void			print_list(t_end_list **start);
+
+t_op			str_to_t_op_two(char *str);
+t_op			str_to_t_op(char *str);
+t_end_list		*new_end_list(t_op ptr);
+void			free_elem(t_end_list *elem);
+void			push_back(t_end_list **any, t_end_list *elem);
+
 #endif

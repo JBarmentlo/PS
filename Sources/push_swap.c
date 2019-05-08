@@ -28,11 +28,12 @@ int	main(int ac, char **av)
 	//ft_printf("%s", str);
 	
 	close(fd);
-	//printf("sorted:%d\n", is_sorted(sys));
+
 //	print_sys(sys);
 	str_to_list(&start, str);
 	simplify(&start);
 	print_list(&start);
+	//printf("sorted:%d\n", is_sorted(sys));
 
 }
 

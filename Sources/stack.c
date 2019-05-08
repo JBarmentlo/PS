@@ -95,7 +95,7 @@ void		sys_free(t_system *sys)
 	free(sys);
 }
 
-void	print_sys(t_system *sys)
+void		print_sys(t_system *sys)
 {
 	int	i;
 
@@ -132,7 +132,7 @@ t_system	*sys_fake(int size, int a_size, int b_size)
 	return (out);
 }
 
-void	free_sys_fake(t_system *sys)
+void		free_sys_fake(t_system *sys)
 {
 	free(sys->a);
 	free(sys->b);

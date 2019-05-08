@@ -1,8 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jbarment <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/08 16:54:17 by jbarment          #+#    #+#             */
+/*   Updated: 2019/05/08 16:54:17 by jbarment         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jbarment <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/08 16:54:06 by jbarment          #+#    #+#             */
+/*   Updated: 2019/05/08 16:54:11 by jbarment         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ps.h"
 #include <fcntl.h>
 #include <unistd.h>
 #include "libft.h"
-#include <stdio.h>
 
 char	*initio_el_checko(void)
 {
@@ -52,38 +75,8 @@ int		main(int ac, char **av)
 		start->op(sys, &str);
 		start = start->next;
 	}
-	//print_sys(sys);
 	if (is_sorted(sys))
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
 }
-
-/*
-int				get_actions(t_push_swap *push)
-{
-	char		act[4];
-	int			cursor;
-	int			r_v;
-
-	cursor = 0;
-	while ((r_v = read(0, act + cursor, 1)) > 0)
-	{
-		if (act[cursor] == '\n')
-		{
-			push->instruction = ft_strnew(cursor);
-			ft_memmove(push->instruction, act, cursor);
-			return (0);
-		}
-		else if (cursor > 3)
-			return (-1);
-		cursor++;
-	}
-	if (r_v == -1 || (act[2] != '\n' && act[3] != '\n')
-	|| (act[2] == '\n' && act[3] == '\n'))
-		return (-1);
-	push->instruction = ft_strnew(cursor);
-	ft_memmove(push->instruction, act, cursor);
-	return (0);
-}
-*/
