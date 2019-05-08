@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/08 16:58:08 by jbarment          #+#    #+#             */
+/*   Updated: 2019/05/08 17:07:57 by jbarment         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ps.h"
 #include "libft.h"
@@ -12,7 +23,7 @@ t_system	*init(char **av)
 	int			i;
 
 	out = (t_system*)malloco(sizeof(t_system));
-	tab = ft_strsplit(av[1],' ');
+	tab = ft_strsplit(av[1], ' ');
 	is_super_walid(tab);
 	i = 0;
 	while (tab[i] != NULL)
@@ -117,24 +128,4 @@ void		print_sys(t_system *sys)
 		}
 		i++;
 	}
-}
-
-t_system	*sys_fake(int size, int a_size, int b_size)
-{
-	t_system	*out;
-
-	out = (t_system*)malloco(sizeof(*out));
-	out->a = (t_stack*)malloco(sizeof(t_stack));
-	out->b = (t_stack*)malloco(sizeof(t_stack));
-	out->size = size;
-	out->a->size = a_size;
-	out->b->size = b_size;
-	return (out);
-}
-
-void		free_sys_fake(t_system *sys)
-{
-	free(sys->a);
-	free(sys->b);
-	free(sys);
 }

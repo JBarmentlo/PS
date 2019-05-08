@@ -1,24 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   str_clean.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/08 16:58:09 by jbarment          #+#    #+#             */
+/*   Updated: 2019/05/08 17:07:06 by jbarment         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string.h>
 #include "ps.h"
 #include "libft.h"
 #include <stdlib.h>
-
-int			count_end_list(t_end_list **start)
-{
-	t_end_list	*it;
-	int			out;
-
-	if (start == NULL)
-		return (0);
-	it = *start;
-	out = 0;
-	while (it)
-	{
-		it = it->next;
-		out++;
-	}
-	return (out);
-}
 
 int			neutralise(t_op one, t_op two, int repeat)
 {

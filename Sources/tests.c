@@ -1,62 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tests.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/08 16:58:09 by jbarment          #+#    #+#             */
+/*   Updated: 2019/05/08 17:12:47 by jbarment         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ps.h"
 #include "libft.h"
 #include <stdlib.h>
 #include <string.h>
-
-void	error(void)
-{
-	ft_printf("Error\n");
-	exit(EXIT_FAILURE);
-}
-
-void	only_digits(char **av)
-{
-	int	fuck;
-	int	i;
-	int	j;
-
-	i = 0;
-	while (av[i])
-	{
-		fuck = 0;
-		j = 0;
-		while (av[i][j])
-		{
-			if (av[i][j] == '-' && fuck == 0)
-			{
-				j++;
-				fuck = 1;
-			}
-			if (!(av[i][j] <= 57 && av[i][j] >= 48))
-				error();
-			j++;
-		}
-		i++;
-	}
-}
-
-int		int_maxou_two(char *str)
-{
-	if (str[5] < '8')
-		return (0);
-	if (str[6] > '3')
-		return (1);
-	if (str[6] < '3')
-		return (0);
-	if (str[7] > '6')
-		return (1);
-	if (str[7] < '6')
-		return (0);
-	if (str[8] > '4')
-		return (1);
-	if (str[8] < '4')
-		return (0);
-	if (str[9] > '7')
-		return (1);
-	if (str[9] < '7')
-		return (0);
-	return (0);
-}
 
 int		minus_maxou(char *str)
 {
@@ -75,7 +32,7 @@ int		minus_maxou(char *str)
 	}
 	return (out);
 }
-#include <stdio.h>
+
 int		int_maxou(char *str)
 {
 	if (str[0] == '-')
@@ -122,10 +79,9 @@ void	is_super_walid(char **tab)
 				error();
 		i++;
 	}
-
 }
 
-int	is_sorted(t_system *sys)
+int		is_sorted(t_system *sys)
 {
 	int	i;
 
@@ -141,7 +97,7 @@ int	is_sorted(t_system *sys)
 	return (1);
 }
 
-int	is_walid(t_system *sys)
+int		is_walid(t_system *sys)
 {
 	int	i;
 	int	j;

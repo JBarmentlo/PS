@@ -3,7 +3,7 @@ CFLAGS=-Wall -Wextra -Werror
 SOURCES=stack.c operations_a.c operations_b.c operations_both.c sorting_hat.c \
 		cursive.c cleaning.c strjon.c str_clean.c new_sort.c op_list.c \
 		new_sort_two.c sorting_hat_two.c tests.c str_clean_dos.c \
-		t_end_list.c
+		t_end_list.c testo_dos.c
 OBJ_FOLDER=out
 LIBFT_DIR=../libft
 OUT=$(addprefix $(OBJ_FOLDER)/,$(SOURCES:.c=.o))
