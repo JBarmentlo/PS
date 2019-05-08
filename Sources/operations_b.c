@@ -6,13 +6,13 @@
 /*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 16:58:08 by jbarment          #+#    #+#             */
-/*   Updated: 2019/05/08 16:58:32 by jbarment         ###   ########.fr       */
+/*   Updated: 2019/05/08 17:21:58 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
 
-void	sb(t_system *sys, char **str)
+void	sb(t_s *sys, char **str)
 {
 	int	*arr;
 	int	tmp;
@@ -26,7 +26,7 @@ void	sb(t_system *sys, char **str)
 	ft_append(str, "sb\n");
 }
 
-void	pb(t_system *sys, char **str)
+void	pb(t_s *sys, char **str)
 {
 	t_stack	*a;
 	t_stack	*b;
@@ -43,7 +43,7 @@ void	pb(t_system *sys, char **str)
 	ft_append(str, "pb\n");
 }
 
-void	rrb(t_system *sys, char **str)
+void	rrb(t_s *sys, char **str)
 {
 	t_stack *b;
 	int		i;
@@ -63,7 +63,7 @@ void	rrb(t_system *sys, char **str)
 	ft_append(str, "rrb\n");
 }
 
-void	rb(t_system *sys, char **str)
+void	rb(t_s *sys, char **str)
 {
 	t_stack *b;
 	int		i;

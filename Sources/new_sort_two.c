@@ -6,14 +6,14 @@
 /*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 16:58:07 by jbarment          #+#    #+#             */
-/*   Updated: 2019/05/08 16:58:26 by jbarment         ###   ########.fr       */
+/*   Updated: 2019/05/08 17:21:58 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
 #include <stdio.h>
 
-int		recpa(t_system *sys, t_system *og, t_op_list **start, int it)
+int		recpa(t_s *sys, t_s *og, t_op_list **start, int it)
 {
 	if (sys->a->size < 1)
 		return (0);
@@ -40,7 +40,7 @@ int		recpa(t_system *sys, t_system *og, t_op_list **start, int it)
 	return (0);
 }
 
-int		recpb(t_system *sys, t_system *og, t_op_list **start, int it)
+int		recpb(t_s *sys, t_s *og, t_op_list **start, int it)
 {
 	if (sys->b->size < 1)
 		return (0);
@@ -67,7 +67,7 @@ int		recpb(t_system *sys, t_system *og, t_op_list **start, int it)
 	return (0);
 }
 
-int		recsb(t_system *sys, t_system *og, t_op_list **start, int it)
+int		recsb(t_s *sys, t_s *og, t_op_list **start, int it)
 {
 	if (sys->b->size < 2)
 		return (0);
@@ -94,7 +94,7 @@ int		recsb(t_system *sys, t_system *og, t_op_list **start, int it)
 	return (0);
 }
 
-int		recsa(t_system *sys, t_system *og, t_op_list **start, int it)
+int		recsa(t_s *sys, t_s *og, t_op_list **start, int it)
 {
 	if (sys->a->size < 2)
 		return (0);
@@ -121,7 +121,7 @@ int		recsa(t_system *sys, t_system *og, t_op_list **start, int it)
 	return (0);
 }
 
-int		recra(t_system *sys, t_system *og, t_op_list **start, int it)
+int		recra(t_s *sys, t_s *og, t_op_list **start, int it)
 {
 	if (sys->a->size < 2)
 		return (0);

@@ -6,13 +6,13 @@
 /*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 16:58:07 by jbarment          #+#    #+#             */
-/*   Updated: 2019/05/08 16:58:19 by jbarment         ###   ########.fr       */
+/*   Updated: 2019/05/08 17:21:58 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
 
-void	set_next(t_system *sys, int value, int iter)
+void	set_next(t_s *sys, int value, int iter)
 {
 	int	i;
 	int	crushed;
@@ -36,7 +36,7 @@ void	set_next(t_system *sys, int value, int iter)
 		set_next(sys, crushed, iter + 1);
 }
 
-void	set_first(t_system *sys)
+void	set_first(t_s *sys)
 {
 	int	i;
 	int	min;
@@ -54,7 +54,7 @@ void	set_first(t_system *sys)
 	set_next(sys, crushed, 1);
 }
 
-void	clean_input(t_system *sys)
+void	clean_input(t_s *sys)
 {
 	int	i;
 
@@ -67,7 +67,7 @@ void	clean_input(t_system *sys)
 	}
 }
 
-int		sorted_till(t_system *sys)
+int		sorted_till(t_s *sys)
 {
 	int	i;
 

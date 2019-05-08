@@ -6,7 +6,7 @@
 /*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 16:58:07 by jbarment          #+#    #+#             */
-/*   Updated: 2019/05/08 16:58:16 by jbarment         ###   ########.fr       */
+/*   Updated: 2019/05/08 17:25:14 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*initio_el_checko(void)
 
 int		main(int ac, char **av)
 {
-	t_system	*sys;
+	t_s			*sys;
 	t_end_list	*start;
 	char		*str;
 

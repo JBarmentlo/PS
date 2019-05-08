@@ -6,7 +6,7 @@
 /*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 16:58:08 by jbarment          #+#    #+#             */
-/*   Updated: 2019/05/08 17:03:39 by jbarment         ###   ########.fr       */
+/*   Updated: 2019/05/08 17:25:42 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 int	main(int ac, char **av)
 {
-	t_system	*sys;
+	t_s			*sys;
 	char		*str;
 	t_end_list	*start;
 

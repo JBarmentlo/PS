@@ -6,7 +6,7 @@
 /*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 16:58:07 by jbarment          #+#    #+#             */
-/*   Updated: 2019/05/08 16:58:21 by jbarment         ###   ########.fr       */
+/*   Updated: 2019/05/08 17:21:58 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <stdio.h>
 
-void	m_ab(t_system *sys, int size, char **str)
+void	m_ab(t_s *sys, int size, char **str)
 {
 	if (sys->a->size - sorted_till(sys) <= 3)
 		rec_start(sys, str);
@@ -27,7 +27,7 @@ void	m_ab(t_system *sys, int size, char **str)
 	}
 }
 
-void	m_ba(t_system *sys, int size, char **str)
+void	m_ba(t_s *sys, int size, char **str)
 {
 	b_a(sys, size, str);
 	if (size / 2 + size % 2 > 1)

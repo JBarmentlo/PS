@@ -6,7 +6,7 @@
 /*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 16:58:08 by jbarment          #+#    #+#             */
-/*   Updated: 2019/05/08 17:07:57 by jbarment         ###   ########.fr       */
+/*   Updated: 2019/05/08 17:26:28 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 #include <string.h>
 #include <stdlib.h>
 
-t_system	*init(char **av)
+t_s		*init(char **av)
 {
-	t_system	*out;
+	t_s			*out;
 	char		**tab;
 	int			i;
 
-	out = (t_system*)malloco(sizeof(t_system));
+	out = (t_s*)malloco(sizeof(t_s));
 	tab = ft_strsplit(av[1], ' ');
 	is_super_walid(tab);
 	i = 0;
@@ -45,12 +45,12 @@ t_system	*init(char **av)
 	return (out);
 }
 
-t_system	*init_old(int ac, char **av)
+t_s		*init_old(int ac, char **av)
 {
-	t_system	*out;
+	t_s			*out;
 	int			i;
 
-	out = (t_system*)malloco(sizeof(t_system));
+	out = (t_s*)malloco(sizeof(t_s));
 	out->size = ac - 1;
 	out->a = (t_stack*)malloco(sizeof(t_stack));
 	out->b = (t_stack*)malloco(sizeof(t_stack));
@@ -68,12 +68,12 @@ t_system	*init_old(int ac, char **av)
 	return (out);
 }
 
-t_system	*sys_clone(t_system *sys)
+t_s		*sys_clone(t_s *sys)
 {
-	t_system	*out;
+	t_s			*out;
 	int			i;
 
-	out = (t_system*)malloco(sizeof(t_system));
+	out = (t_s*)malloco(sizeof(t_s));
 	out->size = sys->size;
 	out->a = (t_stack*)malloco(sizeof(t_stack));
 	out->b = (t_stack*)malloco(sizeof(t_stack));
@@ -95,7 +95,7 @@ t_system	*sys_clone(t_system *sys)
 	return (out);
 }
 
-void		sys_free(t_system *sys)
+void	sys_free(t_s *sys)
 {
 	sys->a->array = sys->a->array - sys->size + sys->a->size;
 	sys->b->array = sys->b->array - sys->size + sys->b->size;
@@ -106,7 +106,7 @@ void		sys_free(t_system *sys)
 	free(sys);
 }
 
-void		print_sys(t_system *sys)
+void	print_sys(t_s *sys)
 {
 	int	i;
 

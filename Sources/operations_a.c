@@ -6,13 +6,13 @@
 /*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 16:58:07 by jbarment          #+#    #+#             */
-/*   Updated: 2019/05/08 16:58:29 by jbarment         ###   ########.fr       */
+/*   Updated: 2019/05/08 17:21:58 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
 
-void	sa(t_system *sys, char **str)
+void	sa(t_s *sys, char **str)
 {
 	int	*arr;
 	int	tmp;
@@ -26,7 +26,7 @@ void	sa(t_system *sys, char **str)
 	ft_append(str, "sa\n");
 }
 
-void	pa(t_system *sys, char **str)
+void	pa(t_s *sys, char **str)
 {
 	t_stack	*a;
 	t_stack	*b;
@@ -43,7 +43,7 @@ void	pa(t_system *sys, char **str)
 	ft_append(str, "pa\n");
 }
 
-void	rra(t_system *sys, char **str)
+void	rra(t_s *sys, char **str)
 {
 	t_stack *a;
 	int		i;
@@ -63,7 +63,7 @@ void	rra(t_system *sys, char **str)
 	ft_append(str, "rra\n");
 }
 
-void	ra(t_system *sys, char **str)
+void	ra(t_s *sys, char **str)
 {
 	t_stack *a;
 	int		i;

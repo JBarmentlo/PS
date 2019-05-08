@@ -6,14 +6,14 @@
 /*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 16:58:07 by jbarment          #+#    #+#             */
-/*   Updated: 2019/05/08 16:58:23 by jbarment         ###   ########.fr       */
+/*   Updated: 2019/05/08 17:25:29 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
 #include <stdio.h>
 
-int		recrra(t_system *sys, t_system *og, t_op_list **start, int it)
+int		recrra(t_s *sys, t_s *og, t_op_list **start, int it)
 {
 	if (sys->a->size < 2)
 		return (0);
@@ -40,7 +40,7 @@ int		recrra(t_system *sys, t_system *og, t_op_list **start, int it)
 	return (0);
 }
 
-int		recrb(t_system *sys, t_system *og, t_op_list **start, int it)
+int		recrb(t_s *sys, t_s *og, t_op_list **start, int it)
 {
 	if (sys->b->size < 2)
 		return (0);
@@ -67,7 +67,7 @@ int		recrb(t_system *sys, t_system *og, t_op_list **start, int it)
 	return (0);
 }
 
-int		recrrb(t_system *sys, t_system *og, t_op_list **start, int it)
+int		recrrb(t_s *sys, t_s *og, t_op_list **start, int it)
 {
 	if (sys->b->size < 2)
 		return (0);
@@ -103,10 +103,10 @@ void	rev_print(char *str)
 		printf("%c", str[i]);
 }
 
-void	rec_start(t_system *syst, char **str)
+void	rec_start(t_s *syst, char **str)
 {
-	t_system	*sys;
-	t_system	*fake;
+	t_s			*sys;
+	t_s			*fake;
 	t_op_list	*start;
 	int			bool;
 

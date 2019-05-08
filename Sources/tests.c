@@ -6,7 +6,7 @@
 /*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 16:58:09 by jbarment          #+#    #+#             */
-/*   Updated: 2019/05/08 17:12:47 by jbarment         ###   ########.fr       */
+/*   Updated: 2019/05/08 17:21:58 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	is_super_walid(char **tab)
 	}
 }
 
-int		is_sorted(t_system *sys)
+int		is_sorted(t_s *sys)
 {
 	int	i;
 
@@ -97,7 +97,7 @@ int		is_sorted(t_system *sys)
 	return (1);
 }
 
-int		is_walid(t_system *sys)
+int		is_walid(t_s *sys)
 {
 	int	i;
 	int	j;

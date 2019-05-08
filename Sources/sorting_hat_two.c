@@ -6,19 +6,19 @@
 /*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 16:58:08 by jbarment          #+#    #+#             */
-/*   Updated: 2019/05/08 16:58:38 by jbarment         ###   ########.fr       */
+/*   Updated: 2019/05/08 17:21:58 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
 
-void	pa_plus(t_system *sys, char **str, int *sent)
+void	pa_plus(t_s *sys, char **str, int *sent)
 {
 	*sent = *sent + 1;
 	pa(sys, str);
 }
 
-void	a_b(t_system *sys, int size, char **str)
+void	a_b(t_s *sys, int size, char **str)
 {
 	int	median;
 	int	rev_count;
@@ -46,13 +46,13 @@ void	a_b(t_system *sys, int size, char **str)
 		rra(sys, str);
 }
 
-void	pb_plus(t_system *sys, char **str, int *sent)
+void	pb_plus(t_s *sys, char **str, int *sent)
 {
 	*sent = *sent + 1;
 	pb(sys, str);
 }
 
-void	b_a(t_system *sys, int size, char **str)
+void	b_a(t_s *sys, int size, char **str)
 {
 	int	median;
 	int	rev_count;

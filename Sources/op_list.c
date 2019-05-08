@@ -6,14 +6,14 @@
 /*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 16:58:07 by jbarment          #+#    #+#             */
-/*   Updated: 2019/05/08 16:58:28 by jbarment         ###   ########.fr       */
+/*   Updated: 2019/05/08 17:21:58 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
 #include <stdlib.h>
 
-void	pf_list(t_op_list **start, void (*ff)(t_system*, char**))
+void	pf_list(t_op_list **start, void (*ff)(t_s*, char**))
 {
 	t_op_list	*node;
 
@@ -23,7 +23,7 @@ void	pf_list(t_op_list **start, void (*ff)(t_system*, char**))
 	*start = node;
 }
 
-void	apply_list(t_op_list **start, t_system *sys, char **str)
+void	apply_list(t_op_list **start, t_s *sys, char **str)
 {
 	t_op_list	*it;
 	t_op_list	*tmp;
