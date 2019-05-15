@@ -6,29 +6,29 @@
 /*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 16:58:08 by jbarment          #+#    #+#             */
-/*   Updated: 2019/05/08 17:26:50 by jbarment         ###   ########.fr       */
+/*   Updated: 2019/05/15 13:19:15 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
 #include <stdlib.h>
 
-void	ss(t_s *sys, char **str)
+void	ss(t_s *sys, t_end_list **start)
 {
-	sa(sys, str);
-	sb(sys, str);
+	sa(sys, start);
+	sb(sys, start);
 }
 
-void	rr(t_s *sys, char **str)
+void	rr(t_s *sys, t_end_list **start)
 {
-	ra(sys, str);
-	rb(sys, str);
+	ra(sys, start);
+	rb(sys, start);
 }
 
-void	rrr(t_s *sys, char **str)
+void	rrr(t_s *sys, t_end_list **start)
 {
-	rra(sys, str);
-	rrb(sys, str);
+	rra(sys, start);
+	rrb(sys, start);
 }
 
 t_s		*sys_fake(int size, int a_size, int b_size)

@@ -6,13 +6,13 @@
 /*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 16:58:08 by jbarment          #+#    #+#             */
-/*   Updated: 2019/05/08 17:21:58 by jbarment         ###   ########.fr       */
+/*   Updated: 2019/05/15 13:25:39 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
 
-void	sb(t_s *sys, char **str)
+void	sb(t_s *sys, t_end_list **start)
 {
 	int	*arr;
 	int	tmp;
@@ -23,10 +23,11 @@ void	sb(t_s *sys, char **str)
 	tmp = arr[0];
 	arr[0] = arr[1];
 	arr[1] = tmp;
-	ft_append(str, "sb\n");
+	if (start)
+		add_new_to_list(start, &sb);
 }
 
-void	pb(t_s *sys, char **str)
+void	pb(t_s *sys, t_end_list **start)
 {
 	t_stack	*a;
 	t_stack	*b;
@@ -40,10 +41,11 @@ void	pb(t_s *sys, char **str)
 	b->array++;
 	a->size++;
 	b->size--;
-	ft_append(str, "pb\n");
+	if (start)
+		add_new_to_list(start, &pb);
 }
 
-void	rrb(t_s *sys, char **str)
+void	rrb(t_s *sys, t_end_list **start)
 {
 	t_stack *b;
 	int		i;
@@ -60,10 +62,11 @@ void	rrb(t_s *sys, char **str)
 		i--;
 	}
 	b->array[0] = tmp;
-	ft_append(str, "rrb\n");
+	if (start)
+		add_new_to_list(start, &rrb);
 }
 
-void	rb(t_s *sys, char **str)
+void	rb(t_s *sys, t_end_list **start)
 {
 	t_stack *b;
 	int		i;
@@ -80,5 +83,6 @@ void	rb(t_s *sys, char **str)
 		i++;
 	}
 	b->array[i] = tmp;
-	ft_append(str, "rb\n");
+	if (start)
+		add_new_to_list(start, &rb);
 }

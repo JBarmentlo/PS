@@ -6,7 +6,7 @@
 /*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 16:58:07 by jbarment          #+#    #+#             */
-/*   Updated: 2019/05/08 18:11:58 by jbarment         ###   ########.fr       */
+/*   Updated: 2019/05/15 14:59:28 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,10 @@ char	*initio_el_checko(void)
 	char		buff[100];
 	char		*str;
 	char		*str_tmp;
-	int			fd;
 	int			red;
 
 	str = malloc(1);
 	str[0] = '\0';
-	fd = open("op", O_RDONLY);
-	red = 1000000;
-	while (red)
-		red--;
 	while ((red = read(0, buff, 100)) > 0)
 	{
 		buff[red] = '\0';
@@ -36,7 +31,6 @@ char	*initio_el_checko(void)
 		str = ft_strjoin(str, buff);
 		free(str_tmp);
 	}
-	close(fd);
 	return (str);
 }
 
@@ -44,6 +38,7 @@ int		main(int ac, char **av)
 {
 	t_s			*sys;
 	t_end_list	*start;
+	t_end_list	*it;
 	char		*str;
 
 	start = NULL;
@@ -58,13 +53,17 @@ int		main(int ac, char **av)
 	free(str);
 	str = malloc(1);
 	str[0] = '\0';
-	while (start)
+	it = start;
+	while (it)
 	{
-		start->op(sys, &str);
-		start = start->next;
+		it->op(sys, NULL);
+		it = it->next;
 	}
 	if (is_sorted(sys))
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
+	sys_free(sys);
+	free(str);
+	free_end_list(&start);
 }

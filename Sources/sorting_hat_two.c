@@ -6,19 +6,19 @@
 /*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 16:58:08 by jbarment          #+#    #+#             */
-/*   Updated: 2019/05/08 17:21:58 by jbarment         ###   ########.fr       */
+/*   Updated: 2019/05/15 13:31:19 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
 
-void	pa_plus(t_s *sys, char **str, int *sent)
+void	pa_plus(t_s *sys, t_end_list **start, int *sent)
 {
 	*sent = *sent + 1;
-	pa(sys, str);
+	pa(sys, start);
 }
 
-void	a_b(t_s *sys, int size, char **str)
+void	a_b(t_s *sys, int size, t_end_list **start)
 {
 	int	median;
 	int	rev_count;
@@ -34,25 +34,25 @@ void	a_b(t_s *sys, int size, char **str)
 	while (i < size && sent < size / 2 + size % 2)
 	{
 		if (sys->a->array[0] <= median)
-			pa_plus(sys, str, &sent);
+			pa_plus(sys, start, &sent);
 		else
 		{
-			ra(sys, str);
+			ra(sys, start);
 			rev_count++;
 		}
 		i++;
 	}
 	while (!bottom && rev_count--)
-		rra(sys, str);
+		rra(sys, start);
 }
 
-void	pb_plus(t_s *sys, char **str, int *sent)
+void	pb_plus(t_s *sys, t_end_list **start, int *sent)
 {
 	*sent = *sent + 1;
-	pb(sys, str);
+	pb(sys, start);
 }
 
-void	b_a(t_s *sys, int size, char **str)
+void	b_a(t_s *sys, int size, t_end_list **start)
 {
 	int	median;
 	int	rev_count;
@@ -68,14 +68,14 @@ void	b_a(t_s *sys, int size, char **str)
 	while (i < size && sent < size / 2 + size % 2)
 	{
 		if (sys->b->array[0] >= median)
-			pb_plus(sys, str, &sent);
+			pb_plus(sys, start, &sent);
 		else
 		{
-			rb(sys, str);
+			rb(sys, start);
 			rev_count++;
 		}
 		i++;
 	}
 	while (!bottom && rev_count--)
-		rrb(sys, str);
+		rrb(sys, start);
 }

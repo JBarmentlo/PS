@@ -6,7 +6,7 @@
 /*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 16:58:08 by jbarment          #+#    #+#             */
-/*   Updated: 2019/05/15 13:09:32 by jbarment         ###   ########.fr       */
+/*   Updated: 2019/05/15 14:52:12 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,20 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+
+t_s	*init_splice(t_s *out, char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+	return (out);
+}
 
 t_s		*init(char **av)
 {
@@ -42,31 +56,9 @@ t_s		*init(char **av)
 		out->a->array[i] = atoi(tab[i]);
 		i++;
 	}
-	return (out);
+	return (init_splice(out, tab));
 }
 
-t_s		*init_old(int ac, char **av)
-{
-	t_s			*out;
-	int			i;
-
-	out = (t_s*)malloco(sizeof(t_s));
-	out->size = ac - 1;
-	out->a = (t_stack*)malloco(sizeof(t_stack));
-	out->b = (t_stack*)malloco(sizeof(t_stack));
-	out->a->array = (int*)malloco(out->size * 4);
-	out->b->array = (int*)malloco(out->size * 4);
-	out->b->array = out->b->array + out->size;
-	out->a->size = out->size;
-	out->b->size = 0;
-	i = 0;
-	while (i < out->size)
-	{
-		out->a->array[i] = atoi(av[i + 1]);
-		i++;
-	}
-	return (out);
-}
 
 t_s		*sys_clone(t_s *sys)
 {

@@ -6,13 +6,13 @@
 /*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 16:58:07 by jbarment          #+#    #+#             */
-/*   Updated: 2019/05/08 17:21:58 by jbarment         ###   ########.fr       */
+/*   Updated: 2019/05/15 13:24:56 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
 
-void	sa(t_s *sys, char **str)
+void	sa(t_s *sys, t_end_list **start)
 {
 	int	*arr;
 	int	tmp;
@@ -23,10 +23,11 @@ void	sa(t_s *sys, char **str)
 	tmp = arr[0];
 	arr[0] = arr[1];
 	arr[1] = tmp;
-	ft_append(str, "sa\n");
+	if (start)
+		add_new_to_list(start, &sa);
 }
 
-void	pa(t_s *sys, char **str)
+void	pa(t_s *sys, t_end_list **start)
 {
 	t_stack	*a;
 	t_stack	*b;
@@ -40,10 +41,11 @@ void	pa(t_s *sys, char **str)
 	a->array++;
 	b->size++;
 	a->size--;
-	ft_append(str, "pa\n");
+	if (start)
+		add_new_to_list(start, &pa);
 }
 
-void	rra(t_s *sys, char **str)
+void	rra(t_s *sys, t_end_list **start)
 {
 	t_stack *a;
 	int		i;
@@ -60,10 +62,11 @@ void	rra(t_s *sys, char **str)
 		i--;
 	}
 	a->array[0] = tmp;
-	ft_append(str, "rra\n");
+	if (start)
+		add_new_to_list(start, &rra);
 }
 
-void	ra(t_s *sys, char **str)
+void	ra(t_s *sys, t_end_list **start)
 {
 	t_stack *a;
 	int		i;
@@ -80,5 +83,6 @@ void	ra(t_s *sys, char **str)
 		i++;
 	}
 	a->array[i] = tmp;
-	ft_append(str, "ra\n");
+	if (start)
+		add_new_to_list(start, &ra);
 }

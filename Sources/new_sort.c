@@ -6,7 +6,7 @@
 /*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 16:58:07 by jbarment          #+#    #+#             */
-/*   Updated: 2019/05/08 17:25:29 by jbarment         ###   ########.fr       */
+/*   Updated: 2019/05/15 14:38:10 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	rev_print(char *str)
 		printf("%c", str[i]);
 }
 
-void	rec_start(t_s *syst, char **str)
+void	rec_start(t_s *syst, t_end_list **start_list)
 {
 	t_s			*sys;
 	t_s			*fake;
@@ -112,10 +112,10 @@ void	rec_start(t_s *syst, char **str)
 
 	bool = 0;
 	start = NULL;
+	if (sorted_till(syst) == syst->a->size)
+		return ;
 	sys = sys_clone(syst);
 	fake = sys_fake(0, sys->a->size, sys->b->size);
-	if (sorted_till(sys) == sys->a->size)
-		return ;
 	while (bool == 0)
 	{
 		bool = recsa(sys, fake, &start, 0);
@@ -125,7 +125,7 @@ void	rec_start(t_s *syst, char **str)
 			bool = recra(sys, fake, &start, 0);
 		fake->size++;
 	}
-	apply_list(&start, syst, str);
+	apply_list(&start, syst, start_list);
 	sys_free(sys);
 	free_sys_fake(fake);
 }

@@ -6,7 +6,7 @@
 /*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 17:24:21 by jbarment          #+#    #+#             */
-/*   Updated: 2019/05/15 13:14:14 by jbarment         ###   ########.fr       */
+/*   Updated: 2019/05/15 14:23:22 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,20 @@ typedef struct			s_s
 	t_stack				*b;
 }						t_s;
 
-typedef struct			s_op_list
-{
-	void				(*f)(t_s*, char**);
-	struct s_op_list	*next;
-}						t_op_list;
-
 typedef struct			s_end_list
 {
-	void				(*op)(t_s*, char**);
+	void				(*op)(t_s*, struct s_end_list**);
 	struct s_end_list	*next;
 	struct s_end_list	*prev;
 }						t_end_list;
 
-typedef void			(*t_op)(t_s*, char**);
+typedef struct			s_op_list
+{
+	void				(*f)(t_s*, struct s_end_list**);
+	struct s_op_list	*next;
+}						t_op_list;
+
+typedef void			(*t_op)(t_s*, t_end_list**);
 
 void					*malloco(size_t size);
 void					ft_append(char **str, char *add);
@@ -50,37 +50,37 @@ void					sys_free(t_s *sys);
 t_s						*sys_fake(int size, int a_size, int b_size);
 void					free_sys_fake(t_s *sys);
 
-void					apply_list(t_op_list **start, t_s *sys, char **str);
-void					pf_list(t_op_list **start, void (*ff)(t_s*, char**));
+void					apply_list(t_op_list **start, t_s *sys, t_end_list **staart);
+void					pf_list(t_op_list **start, void (*ff)(t_s*, struct s_end_list**));
 
 t_s						*init(char **av);
 void					print_sys(t_s *sys);
 
-void					sa(t_s *sys, char **str);
-void					pa(t_s *sys, char **str);
-void					ra(t_s *sys, char **str);
-void					rra(t_s *sys, char **str);
+void					sa(t_s *sys, t_end_list **start);
+void					pa(t_s *sys, t_end_list **start);
+void					ra(t_s *sys, t_end_list **start);
+void					rra(t_s *sys, t_end_list **start);
 
-void					sb(t_s *sys, char **str);
-void					pb(t_s *sys, char **str);
-void					rb(t_s *sys, char **str);
-void					rrb(t_s *sys, char **str);
+void					sb(t_s *sys, t_end_list **start);
+void					pb(t_s *sys, t_end_list **start);
+void					rb(t_s *sys, t_end_list **start);
+void					rrb(t_s *sys, t_end_list **start);
 
-void					ss(t_s *sys, char **str);
-void					rr(t_s *sys, char **str);
-void					rrr(t_s *sys, char **str);
+void					ss(t_s *sys, t_end_list **start);
+void					rr(t_s *sys, t_end_list **start);
+void					rrr(t_s *sys, t_end_list **start);
 
 int						get_median(int *array, int size);
 int						get_median_s(int *array, int size);
 int						get_min(int *arr, int size);
 void					push_half(t_s *sys);
 
-void					b_a(t_s *sys, int size, char **str);
-void					a_b(t_s *sys, int size, char **str);
-void					a_b_first(t_s *sys, int size, char **str);
-void					m_ab_first(t_s *sys, int size, char **str);
-void					m_ba(t_s *sys, int size, char **str);
-void					m_ab(t_s *sys, int size, char **str);
+void					b_a(t_s *sys, int size, t_end_list **start);
+void					a_b(t_s *sys, int size, t_end_list **start);
+void					a_b_first(t_s *sys, int size, t_end_list **start);
+void					m_ab_first(t_s *sys, int size, t_end_list **start);
+void					m_ba(t_s *sys, int size, t_end_list **start);
+void					m_ab(t_s *sys, int size, t_end_list **start);
 
 void					clean_input(t_s *sys);
 int						sorted_till(t_s *sys);
@@ -89,7 +89,7 @@ int						clean_str(char *str);
 int						str_rm_part(char *str, int begin, int end);
 
 void					new_sort(t_s *sys, char **str);
-void					rec_start(t_s *syst, char **str);
+void					rec_start(t_s *syst, t_end_list **start);
 
 void					daman(void);
 int						tab_check(char **av);
