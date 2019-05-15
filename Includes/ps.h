@@ -6,7 +6,7 @@
 /*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 17:24:21 by jbarment          #+#    #+#             */
-/*   Updated: 2019/05/15 14:23:22 by jbarment         ###   ########.fr       */
+/*   Updated: 2019/05/15 15:19:18 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ void					sys_free(t_s *sys);
 t_s						*sys_fake(int size, int a_size, int b_size);
 void					free_sys_fake(t_s *sys);
 
-void					apply_list(t_op_list **start, t_s *sys, t_end_list **staart);
-void					pf_list(t_op_list **start, void (*ff)(t_s*, struct s_end_list**));
+void					apply_list(t_op_list **s, t_s *sys, t_end_list **st);
+void					pf_list(t_op_list **s, void (*ff)(t_s*, t_end_list**));
 
 t_s						*init(char **av);
 void					print_sys(t_s *sys);
