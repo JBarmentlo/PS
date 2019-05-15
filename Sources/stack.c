@@ -6,7 +6,7 @@
 /*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 16:58:08 by jbarment          #+#    #+#             */
-/*   Updated: 2019/05/15 14:52:12 by jbarment         ###   ########.fr       */
+/*   Updated: 2019/05/15 15:09:04 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-t_s	*init_splice(t_s *out, char **tab)
+t_s		*init_splice(t_s *out, char **tab)
 {
 	int	i;
 
@@ -58,7 +58,6 @@ t_s		*init(char **av)
 	}
 	return (init_splice(out, tab));
 }
-
 
 t_s		*sys_clone(t_s *sys)
 {

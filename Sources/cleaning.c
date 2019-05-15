@@ -6,7 +6,7 @@
 /*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 16:58:07 by jbarment          #+#    #+#             */
-/*   Updated: 2019/05/08 18:09:44 by jbarment         ###   ########.fr       */
+/*   Updated: 2019/05/15 15:12:46 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,16 +65,4 @@ void	clean_input(t_s *sys)
 		sys->a->array[i] = sys->a->array[i] + 2147483648;
 		i++;
 	}
-}
-
-int		sorted_till(t_s *sys)
-{
-	int	i;
-
-	if (sys->a->size == 0)
-		return (0);
-	i = sys->a->size - 1;
-	while (i > -1 && sys->a->array[i] == sys->size + i - sys->a->size)
-		i--;
-	return (sys->a->size - i - 1);
 }

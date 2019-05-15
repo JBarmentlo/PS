@@ -6,7 +6,7 @@
 /*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 17:13:35 by jbarment          #+#    #+#             */
-/*   Updated: 2019/05/08 17:14:00 by jbarment         ###   ########.fr       */
+/*   Updated: 2019/05/15 15:13:03 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,16 @@ int		int_maxou_two(char *str)
 	if (str[9] < '7')
 		return (0);
 	return (0);
+}
+
+int		sorted_till(t_s *sys)
+{
+	int	i;
+
+	if (sys->a->size == 0)
+		return (0);
+	i = sys->a->size - 1;
+	while (i > -1 && sys->a->array[i] == sys->size + i - sys->a->size)
+		i--;
+	return (sys->a->size - i - 1);
 }

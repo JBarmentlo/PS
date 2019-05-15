@@ -6,7 +6,7 @@
 /*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 16:58:08 by jbarment          #+#    #+#             */
-/*   Updated: 2019/05/15 14:28:43 by jbarment         ###   ########.fr       */
+/*   Updated: 2019/05/15 15:16:47 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,9 @@ int	main(int ac, char **av)
 		return (-1);
 	clean_input(sys);
 	m_ab(sys, sys->size, &start);
-//	str_to_list(&start, str);
 	simplify(&start);
 	print_list(&start);
 	sys_free(sys);
 	free_end_list(&start);
-//	exit(EXIT_SUCCESS);
+	return (1);
 }
