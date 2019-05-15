@@ -6,7 +6,7 @@
 /*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 16:58:07 by jbarment          #+#    #+#             */
-/*   Updated: 2019/05/08 17:21:58 by jbarment         ###   ########.fr       */
+/*   Updated: 2019/05/15 12:58:17 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 
 void	m_ab(t_s *sys, int size, char **str)
 {
-	if (sys->a->size - sorted_till(sys) <= 3)
-		rec_start(sys, str);
-	else
-	{
+//	if (sys->a->size - sorted_till(sys) <= 3)
+//		rec_start(sys, str);
+//	else
+//	{
 		a_b(sys, size, str);
 		if (size > 2)
 			m_ab(sys, size / 2, str);
 		m_ba(sys, size / 2 + size % 2, str);
-	}
+//	}
 }
 
 void	m_ba(t_s *sys, int size, char **str)

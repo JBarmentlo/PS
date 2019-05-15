@@ -6,7 +6,7 @@
 /*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 16:58:09 by jbarment          #+#    #+#             */
-/*   Updated: 2019/05/08 16:58:48 by jbarment         ###   ########.fr       */
+/*   Updated: 2019/05/15 13:13:51 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,19 @@ t_end_list	*new_end_list(t_op ptr)
 	return (new);
 }
 
-void		free_elem(t_end_list *elem)
+void		free_end_list(t_end_list **start)
 {
-	free(elem);
+	t_end_list *it;
+
+	if (!start)
+		return ;
+	it = *start;
+	while (it)
+	{
+		*start = it;
+		it = it->next;
+		free(*start);
+	}
 }
 
 void		push_back(t_end_list **any, t_end_list *elem)

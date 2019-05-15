@@ -6,7 +6,7 @@
 /*   By: jbarment <jbarment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 17:24:21 by jbarment          #+#    #+#             */
-/*   Updated: 2019/05/08 17:24:24 by jbarment         ###   ########.fr       */
+/*   Updated: 2019/05/15 13:14:14 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,4 +130,6 @@ void					free_elem(t_end_list *elem);
 void					push_back(t_end_list **any, t_end_list *elem);
 void					only_digits(char **av);
 int						int_maxou_two(char *str);
+
+void					free_end_list(t_end_list **start);
 #endif
